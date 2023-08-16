@@ -1,2 +1,2 @@
 # Project-3-Divvying-in-the-Rain
-Is there anything that will stop bike riders in Chicago? 
+Is there anything that will stop bikers in Chicago? 
