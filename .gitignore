@@ -1,3 +1,6 @@
+# API key
+*config.py
+
 # Excel files 
 *.csv 
 *.xlsx 
