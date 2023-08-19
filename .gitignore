@@ -2,7 +2,6 @@
 config.py
 
 # Excel files 
-*.csv 
 *.xlsx 
 
 # Byte-compiled / optimized / DLL files
