@@ -99,9 +99,15 @@ def without_station():
     """Return list of rides without start and/or end stations."""
     withoutStation = db['withoutStationName'].find()
 
-     # Convert ObjectId to string in each document
-    withoutStation = [
-        {**ride, '_id': str(ride['_id'])} for ride in withoutStation
+      # Convert ObjectId to string in each document and remove nested _id from weather_data
+    rides_without_station = [
+        {
+            **ride,
+            '_id': str(ride['_id']),
+            'weather_data': {
+                key: value for key, value in ride['weather_data'].items() if key != '_id'
+            }
+        } for ride in rides_without_station
     ]
 
     return jsonify(list(withoutStation))
@@ -112,9 +118,15 @@ def with_station():
     """Return list of rides with start and/or end stations."""
     withStation = db['withStationName'].find()
 
-    # Convert ObjectId to string in each document
-    withStation = [
-        {**ride, '_id': str(ride['_id'])} for ride in withStation
+    # Convert ObjectId to string in each document and remove nested _id from weather_data
+    rides_with_station = [
+        {
+            **ride,
+            '_id': str(ride['_id']),
+            'weather_data': {
+                key: value for key, value in ride['weather_data'].items() if key != '_id'
+            }
+        } for ride in rides_with_station
     ]
 
     return jsonify(list(withStation))
