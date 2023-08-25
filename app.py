@@ -13,16 +13,16 @@ mongo = MongoClient(port=27017)
 db = mongo.chicago_bikes
 
 divvy_ridedata_merged = db['divvy_ridedata_merged']
-weather_daily = db['weather_daily']
-withoutStation = db['withoutStationName']
-withStation = db['withStationName']
-withLatLong = db['withLatLong']
-Top10StartStations = db['Top10StartStations']
-Top10EndStations = db['Top10EndStations']
-Top10Routes = db['Top10Routes']
-RouteDistance = db['RouteDistance']
-divvy_rides_by_month = db["divvy_rides_by_month"]
-divvy_rides_by_season = db["divvy_rides_by_season"]
+#weather_daily = db['weather_daily']
+#withoutStation = db['withoutStationName']
+#withStation = db['withStationName']
+#withLatLong = db['withLatLong']
+#Top10StartStations = db['Top10StartStations']
+#Top10EndStations = db['Top10EndStations']
+#Top10Routes = db['Top10Routes']
+#RouteDistance = db['RouteDistance']
+#divvy_rides_by_month = db["divvy_rides_by_month"]
+#divvy_rides_by_season = db["divvy_rides_by_season"]
 
 # Create a Flask app
 app = Flask(__name__)
@@ -90,7 +90,6 @@ def daily_weather():
     weather_daily = [
         {**weather, '_id': str(weather['_id'])} for weather in weather_daily
     ]
-
     return jsonify(list(weather_daily))
 
 @app.route("/api/v1.0/without_station")
@@ -103,7 +102,7 @@ def without_station():
             if 'weather_data' in ride:
                 ride['weather_data']['_id'] = str(ride['weather_data']['_id'])  # Convert ObjectId to string in nested document
 
-    return jsonify(list(rides_without_station))
+    return jsonify(rides_without_station)
 
 @app.route("/api/v1.0/with_station")
 
@@ -111,12 +110,12 @@ def with_station():
     """Return a collection of rides with start and/or end stations."""
     rides_with_station = list(db['withStationName'].find())
     for ride in rides_with_station:
-        for ride in rides:
+        for ride in rides_with_station:
             ride['_id'] = str(ride['_id'])  # Convert ObjectId to string
             if 'weather_data' in ride:
                 ride['weather_data']['_id'] = str(ride['weather_data']['_id'])  # Convert ObjectId to string in nested document
 
-    return jsonify(list(rides_with_station))
+    return jsonify(rides_with_station)
 
 @app.route("/api/v1.0/with_lat_long")
 
