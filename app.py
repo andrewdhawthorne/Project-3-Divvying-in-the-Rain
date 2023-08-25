@@ -13,6 +13,17 @@ mongo = MongoClient(port=27017)
 db = mongo.chicago_bikes
 
 divvy_ridedata_merged = db['divvy_ridedata_merged']
+weather_daily = db['weather_daily']
+divvy_ridedata_merged = db['divvy_ridedata_merged']
+withoutStation = db['withoutStationName']
+withStation = db['withStationName']
+withLatLong = db['withLatLong']
+Top10StartStations = db['Top10StartStations']
+Top10EndStations = db['Top10EndStations']
+Top10Routes = db['Top10Routes']
+RouteDistance = db['RouteDistance']
+divvy_rides_by_month = db["divvy_rides_by_month"]
+divvy_rides_by_season = db["divvy_rides_by_season"]
 
 # Create a Flask app
 app = Flask(__name__)
@@ -31,6 +42,8 @@ def welcome():
         "Available Routes:<br/>"
         "/api/v1.0/stations<br/>"
         "/api/v1.0/start_stations<br/>"
+        "/api/v1.0/end_stations<br/>"
+        "/api/v1.0/top_routes<br/>"
     )
 
 @app.route("/api/v1.0/stations")
@@ -44,28 +57,22 @@ def stations():
 
 def start_stations():
     """Return a top to start stations from the dataset."""
+    Top10StartStations = db['Top10StartStations'].find()
+    return jsonify(list(Top10StartStations))
 
-    # Use aggregation pipeline to find top ten start stations 
-    pipeline = [
-        {
-            "$group": {
-                "_id": "$start_station_name",
-                "count": {"$sum": 1},
-                "latitude": {"$first": "$start_lat"},
-                "longitude": {"$first": "$start_lng"}
-            }
-        },
-        {
-            "$sort": {"count": -1}
-        },
-        {
-            "$limit": 11
-        }
-    ]
+@app.route("/api/v1.0/end_stations")
 
-# Perform the aggregation
-    start_station_result = list(divvy_ridedata_merged.aggregate(pipeline))
-    return jsonify(start_station_result)
+def end_stations():
+    """Return a top to start stations from the dataset."""
+    Top10EndStations = db['Top10EndStations'].find()
+    return jsonify(list(Top10EndStations))
+
+@app.route("/api/v1.0/top_routes")
+
+def top_routes():
+    """Return a top to start stations from the dataset."""
+    Top10EndStations = db['Top10EndStations'].find()
+    return jsonify(list(Top10EndStations))
 
 if __name__ == "__main__":
     app.run(debug=True)
