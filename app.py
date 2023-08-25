@@ -13,10 +13,10 @@ mongo = MongoClient(port=27017)
 db = mongo.chicago_bikes
 
 divvy_ridedata_merged = db['divvy_ridedata_merged']
-weather_daily = db['weather_daily']
-withoutStation = db['withoutStationName']
-withStation = db['withStationName']
-withLatLong = db['withLatLong']
+# weather_daily = db['weather_daily']
+# withoutStation = db['withoutStationName']
+# withStation = db['withStationName']
+# withLatLong = db['withLatLong']
 Top10StartStations = db['Top10StartStations']
 Top10EndStations = db['Top10EndStations']
 Top10Routes = db['Top10Routes']
@@ -99,7 +99,7 @@ def without_station():
     """Return list of rides without start and/or end stations."""
     withoutStation = db['withoutStationName'].find()
 
-      # Convert ObjectId to string in each document and remove nested _id from weather_data
+    # Convert ObjectId to string in each document and remove nested _id from weather_data
     rides_without_station = [
         {
             **ride,
@@ -107,10 +107,10 @@ def without_station():
             'weather_data': {
                 key: value for key, value in ride['weather_data'].items() if key != '_id'
             }
-        } for ride in rides_without_station
+        } for ride in withoutStation  # Use withoutStation here
     ]
 
-    return jsonify(list(withoutStation))
+    return jsonify(list(rides_without_station))
 
 @app.route("/api/v1.0/with_station")
 
@@ -126,17 +126,17 @@ def with_station():
             'weather_data': {
                 key: value for key, value in ride['weather_data'].items() if key != '_id'
             }
-        } for ride in rides_with_station
+        } for ride in withStation  # Use withStation here
     ]
 
-    return jsonify(list(withStation))
+    return jsonify(list(rides_with_station))
 
 @app.route("/api/v1.0/with_lat_long")
 
 def with_lat_long():
-    """Return list of rides with latitude and longitude."""
-    withLatLong = db['withLatLong'].find()
-    return jsonify(list(withLatLong))
+    """Return data based on latitude and longitude."""
+
+    return jsonify(formatted_rides)
 
 @app.route("/api/v1.0/route_distance")
 
