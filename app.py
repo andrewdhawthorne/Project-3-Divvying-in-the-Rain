@@ -1,5 +1,6 @@
 # Import the dependencies
 from flask import Flask, jsonify
+from flask_cors import CORS
 import pymongo
 from pymongo import MongoClient
 
@@ -15,6 +16,7 @@ divvy_ridedata_merged = db['divvy_ridedata_merged']
 
 # Create a Flask app
 app = Flask(__name__)
+CORS(app)  # Enable CORS for the entire app
 
 # Define your Flask routes
 
