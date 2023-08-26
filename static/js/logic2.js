@@ -11,6 +11,7 @@ fetch('http://127.0.0.1:5000/api/v1.0/rides_by_month')
 
 // Call the function with the provided JSON data
 function createLineChart(data) {
+    console.log(data);
     // Extract months and total rides from the JSON data
     const months = data.map(entry => entry.month);
     const totalRides = data.map(entry => entry.total_rides);
@@ -45,5 +46,46 @@ function createLineChart(data) {
             },
         },
     },
+    });
+}
+
+// Fetch JSON data from the provided URL
+fetch('http://127.0.0.1:5000/api/v1.0/rides_by_season')
+  .then(response => response.json())
+  .then(data => {
+    // Call the function with fetched JSON data
+    createPieChart(data);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
+// Call the function with the provided JSON data
+function createPieChart(data) {
+    console.log(data);
+    // Extract seasons and total rides from the JSON data
+    const labels = data.map(entry => entry._id.season);
+        console.log(labels);
+    const counts = data.map(entry => entry.total_rides);
+        console.log(counts);
+  
+    const ctx = document.getElementById('pieChart').getContext('2d');
+    const pieChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: counts,
+          backgroundColor: ['red', 'green', 'blue', 'orange', 'purple'], // Define colors
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        title: {
+          display: true,
+          text: 'Rides by Type',
+        },
+      },
     });
 }
