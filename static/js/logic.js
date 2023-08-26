@@ -20,18 +20,24 @@ document.addEventListener("DOMContentLoaded", function() {
     fetchMapData(selectedUrl);
   });
 
-  function fetchMapData(url) {
+  function fetchMapData(url, selectedLocation) {
     console.log("Fetching data from:", url);
-
+  
     fetch(url)
       .then(response => response.json())
       .then(data => {
         console.log("Fetch successful. Data:", data);
         clearMapMarkers();
-        processMapData(data);
+  
+        if (selectedLocation === 'location3') {
+          processTopRoutesMapData(data);
+        } else {
+          processMapData(data);
+        }
       })
       .catch(error => console.error('Error:', error));
   }
+  
 
   function clearMapMarkers() {
     markers.forEach(marker => map.removeLayer(marker));
@@ -49,6 +55,40 @@ document.addEventListener("DOMContentLoaded", function() {
       markers.push(marker);
     });
   }
+
+  function processTopRoutesMapData(data) {
+    if (!map) {
+      initializeMap();
+    }
+    
+    console.log("Processing top routes data:", data); // Log the data
+  
+    data.forEach(route => {
+      const startCoords = [route["start latitude"], route["start longitude"]];
+      const endCoords = [route["end latitude"], route["end longitude"]];
+      
+      console.log("Start Coords:", startCoords); // Log start coordinates
+      console.log("End Coords:", endCoords); // Log end coordinates
+      
+      const startMarker = L.marker(startCoords).addTo(map);
+      console.log("Start Marker:", startMarker); // Log start marker object
+      
+      startMarker.bindPopup(`<b>Start: ${route._id["Start Station"]}</b><br>Count: ${route.count}`);
+      
+      const endMarker = L.marker(endCoords).addTo(map);
+      console.log("End Marker:", endMarker); // Log end marker object
+      
+      endMarker.bindPopup(`<b>End: ${route._id["End Station"]}</b><br>Count: ${route.count}`);
+      
+      markers.push(startMarker, endMarker);
+      
+      const routeLine = L.polyline([startCoords, endCoords], { color: 'blue' }).addTo(map);
+      console.log("Route Line:", routeLine); // Log route line object
+      
+      markers.push(routeLine);
+    });
+  }
+  
 
   function initializeMap() {
     map = L.map("map", {
