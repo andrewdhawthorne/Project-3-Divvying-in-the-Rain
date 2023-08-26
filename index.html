@@ -18,8 +18,25 @@
 
 <body>
 
-  <!-- The div that holds our map -->
-  <div id="map"></div>
+    <!-- The div that holds our map -->
+    <div class="block-container">
+      <h1 class="section-header">Chicago Divvy Rides Map</h1>
+  
+      <div class="dropdown-container">
+        <label class="dropdown-label" for="location-dropdown">Select a location:</label>
+        <select id="location-dropdown" class="dropdown">
+          <option value="location1">All Stations</option>
+          <option value="location2">Location 2</option>
+          <option value="location3">Location 3</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+  
+      <!-- The map container -->
+      <div id="map">
+        <!-- The map will be rendered here -->
+      </div>
+    </div>
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
