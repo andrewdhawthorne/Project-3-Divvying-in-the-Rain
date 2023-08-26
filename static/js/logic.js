@@ -14,10 +14,11 @@ document.addEventListener("DOMContentLoaded", function() {
   const locationDropdown = document.getElementById("location-dropdown");
 
   locationDropdown.addEventListener("change", function() {
-    const selectedLocation = locationDropdown.value;
+    const selectedLocation = locationDropdown.value; // Get the selected location from the dropdown
     const selectedUrl = urls[selectedLocation];
     
-    fetchMapData(selectedUrl);
+    fetchMapData(selectedUrl, selectedLocation); // Pass the selected location to the function
+
   });
 
   function fetchMapData(url, selectedLocation) {
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
       .then(data => {
         console.log("Fetch successful. Data:", data);
         clearMapMarkers();
-  
+        console.log('selected location',selectedLocation)
         if (selectedLocation === 'location3') {
           processTopRoutesMapData(data);
         } else {
@@ -49,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function() {
       initializeMap();
     }
 
+    console.log('check',data)
+
     data.forEach(entry => {
       const marker = L.marker([entry.latitude, entry.longitude]).addTo(map);
       marker.bindPopup(`<b>${entry._id}</b>`);
@@ -60,34 +63,46 @@ document.addEventListener("DOMContentLoaded", function() {
     if (!map) {
       initializeMap();
     }
-    
-    console.log("Processing top routes data:", data); // Log the data
   
     data.forEach(route => {
-      const startCoords = [route["start latitude"], route["start longitude"]];
-      const endCoords = [route["end latitude"], route["end longitude"]];
-      
-      console.log("Start Coords:", startCoords); // Log start coordinates
-      console.log("End Coords:", endCoords); // Log end coordinates
-      
-      const startMarker = L.marker(startCoords).addTo(map);
-      console.log("Start Marker:", startMarker); // Log start marker object
-      
-      startMarker.bindPopup(`<b>Start: ${route._id["Start Station"]}</b><br>Count: ${route.count}`);
-      
-      const endMarker = L.marker(endCoords).addTo(map);
-      console.log("End Marker:", endMarker); // Log end marker object
-      
-      endMarker.bindPopup(`<b>End: ${route._id["End Station"]}</b><br>Count: ${route.count}`);
-      
-      markers.push(startMarker, endMarker);
-      
+      const startCoords = [parseFloat(route["start latitude"]), parseFloat(route["start longitude"])];
+      const endCoords = [parseFloat(route["end latitude"]), parseFloat(route["end longitude"])];
+  
+      const startMarker = L.marker(startCoords, { isStartMarker: true, routeData: route }).addTo(map);
+      startMarker.on('click', handleMarkerClick);
+      markers.push(startMarker);
+  
+      if (startCoords[0] !== endCoords[0] || startCoords[1] !== endCoords[1]) {
+        const endMarker = L.marker(endCoords, { isStartMarker: false, routeData: route }).addTo(map);
+        endMarker.on('click', handleMarkerClick);
+        markers.push(endMarker);
+      }
+  
       const routeLine = L.polyline([startCoords, endCoords], { color: 'blue' }).addTo(map);
-      console.log("Route Line:", routeLine); // Log route line object
-      
       markers.push(routeLine);
     });
   }
+  
+  function handleMarkerClick(event) {
+    const marker = event.target;
+    const isStartMarker = marker.options.isStartMarker;
+    const route = marker.options.routeData;
+  
+    const stationName = isStartMarker ? route._id["Start Station"] : route._id["End Station"];
+    const markerType = isStartMarker ? "Start" : "End";
+  
+    let popupContent = `<b>${markerType} Station:</b> ${stationName}<br>`;
+    if (isStartMarker && route["start latitude"] === route["end latitude"] && route["start longitude"] === route["end longitude"]) {
+      popupContent += `<b>Ride Count:</b> ${route.count}`;
+    } else {
+      popupContent += `<b>Ride Count:</b> ${route.count}<br><b>Other Station:</b> ${route._id[isStartMarker ? "End Station" : "Start Station"]}`;
+    }
+  
+    marker.bindPopup(popupContent);
+    marker.openPopup();
+  }
+  
+  
   
 
   function initializeMap() {
