@@ -11,13 +11,17 @@ body {
   background-color: #f7f9fc;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto; /* Center the block container on the page */
+  max-width: 600px; /* Set a maximum width to prevent it from stretching too much */
 }
 
 #map {
-  height: 70vh; /* Adjust the height as needed */
-  border: 1px solid #ccc;
+  height: 400px; /* Adjust the height as needed */
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ccc; /* Add a border for visibility */
   border-radius: 5px;
-  margin-top: 20px; /* Add space between dropdown and map */
+  margin-top: 20px; /* Add some space between the map and other elements */
 }
 
 .section-header {
