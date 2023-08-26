@@ -1,71 +1,67 @@
 document.addEventListener("DOMContentLoaded", function() {
-  console.log("Fetching data...");
+  const urls = {
+    location1: 'http://127.0.0.1:5000/api/v1.0/start_stations',
+    location2: 'http://127.0.0.1:5000/api/v1.0/end_stations',
+    location3: 'http://127.0.0.1:5000/api/v1.0/top_routes'
+  };
+
+  const mapCenter = [41.8781, -87.6298];
+  const initialZoom = 13;
 
   let map;
-  let markers = []; // To store the markers on the map
+  let markers = [];
 
-  // Initialize the map and fetch data
-  fetch('http://127.0.0.1:5000/api/v1.0/start_stations')
-    .then(response => response.json())
-    .then(data => {
-      console.log("Fetch successful. Data:", data);
-      // Call a function to process the data 
-      processMapData(data);
+  const locationDropdown = document.getElementById("location-dropdown");
 
-      // Add event listener to the dropdown
-      const locationDropdown = document.getElementById("location-dropdown");
-      locationDropdown.addEventListener("change", function() {
-        const selectedLocation = locationDropdown.value;
-        updateMapMarkers(selectedLocation, data);
-      });
+  locationDropdown.addEventListener("change", function() {
+    const selectedLocation = locationDropdown.value;
+    const selectedUrl = urls[selectedLocation];
+    
+    fetchMapData(selectedUrl);
+  });
 
-    })
-    .catch(error => console.error('Error:', error));
+  function fetchMapData(url) {
+    console.log("Fetching data from:", url);
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log("Fetch successful. Data:", data);
+        clearMapMarkers();
+        processMapData(data);
+      })
+      .catch(error => console.error('Error:', error));
+  }
+
+  function clearMapMarkers() {
+    markers.forEach(marker => map.removeLayer(marker));
+    markers = [];
+  }
 
   function processMapData(data) {
-    // Initialize the map
-    map = L.map("map", {
-      center: [41.8781, -87.6298],
-      zoom: 13
-    });
+    if (!map) {
+      initializeMap();
+    }
 
-    // Adding a tile layer (the background map image) to our map
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Add markers to the map
     data.forEach(entry => {
-      var marker = L.marker([entry.latitude, entry.longitude]).addTo(map);
+      const marker = L.marker([entry.latitude, entry.longitude]).addTo(map);
       marker.bindPopup(`<b>${entry._id}</b>`);
       markers.push(marker);
     });
   }
 
-  function updateMapMarkers(selectedLocation, data) {
-    // Clear existing markers from the map
-    markers.forEach(marker => map.removeLayer(marker));
-  
-    if (selectedLocation === "location1") {
-      // Add markers for all stations
-      data.forEach(entry => {
-        var marker = L.marker([entry.latitude, entry.longitude]).addTo(map);
-        marker.bindPopup(`<b>${entry._id}</b>`);
-        markers.push(marker);
-      });
-    } else {
-      // Filter data based on selectedLocation (implement your own logic here)
-      const filteredData = data.filter(entry => entry.location === selectedLocation);
-  
-      // Add filtered markers to the map
-      filteredData.forEach(entry => {
-        var marker = L.marker([entry.latitude, entry.longitude]).addTo(map);
-        marker.bindPopup(`<b>${entry._id}</b>`);
-        markers.push(marker);
-      });
-    }
+  function initializeMap() {
+    map = L.map("map", {
+      center: mapCenter,
+      zoom: initialZoom
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
   }
 });
+
 
 
   
