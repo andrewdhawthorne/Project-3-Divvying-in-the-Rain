@@ -1,10 +1,48 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-#map,
-body,
-html {
-  height: 100%;
+.block-container {
+  display: block;
+  text-align: center;
+  padding: 30px;
+  background-color: #f7f9fc;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+#map {
+  height: 70vh; /* Adjust the height as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px; /* Add space between dropdown and map */
+}
+
+.section-header {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.dropdown-container {
+  margin-top: 20px;
+}
+
+.dropdown-label {
+  display: block;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+

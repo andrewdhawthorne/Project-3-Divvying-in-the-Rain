@@ -12,6 +12,7 @@ from pymongo import MongoClient
 mongo = MongoClient(port=27017)
 db = mongo.chicago_bikes
 
+
 divvy_ridedata_merged = db['divvy_ridedata_merged']
 #weather_daily = db['weather_daily']
 #withoutStation = db['withoutStationName']
@@ -53,6 +54,7 @@ def welcome():
     )
 
 @app.route("/api/v1.0/stations")
+
 
 def stations():
     """Return a list of stations from the dataset."""
