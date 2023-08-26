@@ -1,0 +1,24 @@
+## Useful Links
+
+https://www.mongodb.com/docs/manual/reference/operator/aggregation/merge/
+
+https://stackoverflow.com/questions/56131463/ignoring-null-values-within-an-aggregate-operation-in-mongodb
+
+https://www.mongodb.com/docs/manual/reference/operator/aggregation/filter/
+
+https://stackoverflow.com/questions/37516219/how-to-filter-data-in-mongo-collection-using-pymongo
+
+https://stackoverflow.com/questions/29577713/string-field-value-length-in-mongodb
+
+https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
+
+https://www.tutorialspoint.com/mongodb-query-to-get-documents-with-multiple-conditions-set-in-or
+
+https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/delete-local-git-branch-origin-force-merge-all
+
+https://medium.com/@alexeysamoshkin/manage-git-work-tree-and-index-using-git-restore-command-d90d90f04c4f
+
+https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
+
+
+
