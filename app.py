@@ -20,7 +20,8 @@ weather_daily = db['weather_daily']
 divvy_rides_by_month = db["divvy_rides_by_month"]
 divvy_rides_by_season = db["divvy_rides_by_season"]
 station_names = db['distinct_station_names']
-new_collection_test = db["sig_prcp_no_month_with_string_id"]
+sig_prcp_no_month_string = db["sig_prcp_no_month_with_string_id"]
+sig_prcp_yes_month_string = db["sig_prcp_yes_month_with_string_id"]
 #withoutStation = db['withoutStationName']
 #withStation = db['withStationName']
 #withLatLong = db['withLatLong']
@@ -122,13 +123,15 @@ def rides_by_season():
 
 def rides_sig_prcp_no_month():
     """Return list of rides by season."""
-    new_collection_test = db["sig_prcp_no_month_with_string_id"].find()
-    return jsonify(list(new_collection_test))
+    sig_prcp_no_month_string = db["sig_prcp_no_month_with_string_id"].find()
+    return jsonify(list(sig_prcp_no_month_string))
 
 @app.route("/api/v1.0/rides_sig_prcp_yes_month")
 
 def rides_sig_prcp_yes_month():
     """Return list of rides by season."""
+    sig_prcp_yes_month_string = db["sig_prcp_yes_month_with_string_id"].find()
+    return jsonify(list(sig_prcp_yes_month_string))
     #new_collection_test = db["sig_prcp_yes_month_with_string_id"].find()
     #return jsonify(list(new_collection_test))
 
