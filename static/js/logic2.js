@@ -89,3 +89,84 @@ function createPieChart(data) {
       },
     });
 }
+
+// Fetch JSON data from the provided URLs
+const fetchDataset1 = fetch('http://127.0.0.1:5000/api/v1.0/rides_sig_prcp_yes_month')
+  .then(response => response.json());
+
+const fetchDataset2 = fetch('http://127.0.0.1:5000/api/v1.0/rides_sig_prcp_no_month')
+  .then(response => response.json());
+
+// Wait for both dataset fetches to complete
+Promise.all([fetchDataset1, fetchDataset2])
+  .then(([dataset1, dataset2]) => {
+    // Call the function to create the chart with the fetched datasets
+    createChart(dataset1, dataset2);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
+function createChart(dataset1, dataset2) {
+
+    function createUtils() {
+        return {
+          CHART_COLORS: {
+            red: 'rgba(255, 0, 0, 1)',
+            green: 'rgba(0, 255, 0, 1)',
+            blue: 'rgba(0, 0, 255, 1)',
+            // Define other colors as needed
+          },
+          transparentize: (color, opacity) => {
+            const rgbaColor = color.replace('1)', `${opacity})`);
+            return rgbaColor;
+          }
+        };
+      }
+      
+    const utils = createUtils();
+
+    const labels = dataset1.map(entry => entry.month);
+    const data = {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Dataset 1',
+            data: dataset1.map(entry => entry.average_rides_per_day),
+            borderColor: utils.CHART_COLORS.red,  // Corrected
+            backgroundColor: utils.transparentize(utils.CHART_COLORS.red, 0.5),  // Corrected
+          },
+          {
+            label: 'Dataset 2',
+            data: dataset2.map(entry => entry.average_rides_per_day),
+            borderColor: utils.CHART_COLORS.blue,  // Corrected
+            backgroundColor: utils.transparentize(utils.CHART_COLORS.blue, 0.5),  // Corrected
+          }
+        ]
+      };
+  
+    const ctx = document.getElementById('weatherChart').getContext('2d');
+    const weatherChart = new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: {
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Month'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Average Rides per Day'
+            }
+          }
+        }
+      }
+    });
+  }
+
+const borderColor1 = utils.CHART_COLORS.red;
+const transparentColor1 = utils.transparentize(utils.CHART_COLORS.red, 0.5);
