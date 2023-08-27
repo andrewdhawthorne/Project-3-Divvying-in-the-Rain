@@ -19,6 +19,7 @@ Top10Routes = db['Top10Routes']
 weather_daily = db['weather_daily']
 divvy_rides_by_month = db["divvy_rides_by_month"]
 divvy_rides_by_season = db["divvy_rides_by_season"]
+station_names = db['distinct_station_names']
 #withoutStation = db['withoutStationName']
 #withStation = db['withStationName']
 #withLatLong = db['withLatLong']
@@ -56,8 +57,9 @@ def welcome():
 
 def stations():
     """Return a list of stations from the dataset."""
-    station_list = divvy_ridedata_merged.distinct("start_station_name")
-    return jsonify(station_list)
+    station_cursor = db['distinct_station_names'].find()
+    return jsonify(list(station_cursor))
+
 
 @app.route("/api/v1.0/start_stations")
 
