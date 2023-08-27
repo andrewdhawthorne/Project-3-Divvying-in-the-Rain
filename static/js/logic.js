@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const locationDropdown = document.getElementById("location-dropdown");
 
+  // Set "location4" as the default selection
+  locationDropdown.value = "location4";
+
+  // Trigger the change event programmatically
+  locationDropdown.dispatchEvent(new Event("change"));
+
   locationDropdown.addEventListener("change", function() {
     const selectedLocation = locationDropdown.value; // Get the selected location from the dropdown
     const selectedUrl = urls[selectedLocation];
