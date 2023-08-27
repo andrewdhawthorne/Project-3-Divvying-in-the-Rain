@@ -36,10 +36,10 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin: 20px auto; /* Center the block container on the page */
-  max-width: 600px; /* Set a maximum width to prevent it from stretching too much */
 }
 
 #map {
+  width: 100%; /* Make the map fill the width of the screen */
   height: 400px; /* Adjust the height as needed */
   position: relative;
   overflow: hidden;
@@ -51,6 +51,9 @@ body {
 .section-header {
   margin-bottom: 20px;
   color: #333;
+  font-size: 20px; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the text bold */
+  text-align: center; /* Center the section header text */
 }
 
 .dropdown-container {
@@ -74,15 +77,27 @@ body {
   color: #333;
 }
 
-/* Add styling for the line chart container */
 .chart-container {
-  text-align: center;
+  display: flex;
+}
+
+.line-chart {
+  flex: 1;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  max-width: 600px;
+}
+
+.pie-chart {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Style the section headers for the charts */
+.section-header {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 20px; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the text bold */
+  text-align: center; /* Center the section header text */
 }
 
 /* Style the line chart canvas element */
@@ -91,18 +106,6 @@ body {
   height: auto;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-/* Add styling for the pie chart container */
-.chart-container-2 {
-  text-align: center;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  width: 400px;
-  max-height: 600px;
 }
 
 /* Style the pie chart canvas element */

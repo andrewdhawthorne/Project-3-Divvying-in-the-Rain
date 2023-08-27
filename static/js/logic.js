@@ -6,9 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     location4: 'http://127.0.0.1:5000/api/v1.0/stations',
   };
 
-  
-
-  const mapCenter = [41.8781, -87.6298];
+  const mapCenter = [41.8781, -87.6798];
   const initialZoom = 13;
 
   let map;
@@ -16,19 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const locationDropdown = document.getElementById("location-dropdown");
 
-  // Set "location4" as the default selection
-  locationDropdown.value = "location4";
-
-  // Trigger the change event programmatically
-  locationDropdown.dispatchEvent(new Event("change"));
-
   locationDropdown.addEventListener("change", function() {
     const selectedLocation = locationDropdown.value; // Get the selected location from the dropdown
-    const selectedUrl = urls[selectedLocation];
-    
-    fetchMapData(urls[selectedLocation], selectedLocation); // Pass the selected location to the function
-
+    fetchMapData(urls[selectedLocation], selectedLocation);
   });
+
+  // Call fetchMapData with the default location "location4" when the page loads
+  fetchMapData(urls["location4"], "location4");
 
   function fetchMapData(url, selectedLocation) {
     console.log("Fetching data from:", url);
@@ -134,12 +126,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }).addTo(map);
   }
 });
-
-
-
-  
-    
-  
-  
-
-
