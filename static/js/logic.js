@@ -2,8 +2,11 @@ document.addEventListener("DOMContentLoaded", function() {
   const urls = {
     location1: 'http://127.0.0.1:5000/api/v1.0/start_stations',
     location2: 'http://127.0.0.1:5000/api/v1.0/end_stations',
-    location3: 'http://127.0.0.1:5000/api/v1.0/top_routes'
+    location3: 'http://127.0.0.1:5000/api/v1.0/top_routes',
+    location4: 'http://127.0.0.1:5000/api/v1.0/stations',
   };
+
+  
 
   const mapCenter = [41.8781, -87.6298];
   const initialZoom = 13;
@@ -17,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const selectedLocation = locationDropdown.value; // Get the selected location from the dropdown
     const selectedUrl = urls[selectedLocation];
     
-    fetchMapData(selectedUrl, selectedLocation); // Pass the selected location to the function
+    fetchMapData(urls[selectedLocation], selectedLocation); // Pass the selected location to the function
 
   });
 
@@ -29,16 +32,16 @@ document.addEventListener("DOMContentLoaded", function() {
       .then(data => {
         console.log("Fetch successful. Data:", data);
         clearMapMarkers();
-        console.log('selected location',selectedLocation)
         if (selectedLocation === 'location3') {
           processTopRoutesMapData(data);
+        } else if (selectedLocation === 'location4') {
+          processLocation4Data(data);
         } else {
           processMapData(data);
         }
       })
       .catch(error => console.error('Error:', error));
-  }
-  
+  }  
 
   function clearMapMarkers() {
     markers.forEach(marker => map.removeLayer(marker));
@@ -101,9 +104,18 @@ document.addEventListener("DOMContentLoaded", function() {
     marker.bindPopup(popupContent);
     marker.openPopup();
   }
+
+  function processLocation4Data(data) {
+    if (!map) {
+      initializeMap();
+    }
   
-  
-  
+    data.forEach(entry => {
+      const marker = L.marker([entry.start_lat, entry.start_lng]).addTo(map);
+      marker.bindPopup(`<b>${entry.start_station_name}</b><br><b>ID:</b> ${entry._id}`);
+      markers.push(marker);
+    });
+  }
 
   function initializeMap() {
     map = L.map("map", {
