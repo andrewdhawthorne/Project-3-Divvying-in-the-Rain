@@ -115,3 +115,26 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.weather-chart {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Style the section header for the weather chart */
+.weather-chart h4 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 20px; /* Adjust the font size as needed */
+  font-weight: bold; /* Make the text bold */
+}
+
+/* Style the weather chart canvas element */
+#weatherChart {
+  width: 100%;
+  max-height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
