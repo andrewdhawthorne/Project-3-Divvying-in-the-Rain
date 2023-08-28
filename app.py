@@ -3,6 +3,7 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import pymongo
 from pymongo import MongoClient
+import os
 
 #################################################
 # Database Setup
