@@ -11,7 +11,7 @@ Is there anything that will stop bikers in Chicago?
 ## Table of Contents
 
  * [Project Overview](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/main/README.md#project-overview)
- * [Languages Used]()
+ * [Languages Used](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/main/README.md#languages-used)
  * [Preparing the Data]()
  * [Processing the Data for Interactive Visualizations]()
  * [Key Takeaways](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/main/README.md#key-takeaways)
