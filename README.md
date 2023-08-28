@@ -46,6 +46,7 @@ Downloaded [Monthly Historical Divvy Trip Data](https://divvybikes.com/system-da
 
 3. Utilized Javascript files to create map with dropdown option and create charts
 4. Incorporated our CSS file with HTML to build out the dashboard.
+   
    <img width="790" alt="Screenshot 2023-08-28 at 10 49 35 AM" src="https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/131564308/6eaad715-d916-4104-a2c6-6e2e9d081e5f">
 ## Key Takeaways
    * Increased awareness of the process of using various applications to display findings to end user
