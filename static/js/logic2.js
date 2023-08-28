@@ -131,13 +131,13 @@ function createChart(dataset1, dataset2) {
         labels: labels,
         datasets: [
           {
-            label: 'Dataset 1',
+            label: 'Significant Precipitation (>=0.1 in)',
             data: dataset1.map(entry => entry.average_rides_per_day),
             borderColor: utils.CHART_COLORS.red,  // Corrected
             backgroundColor: utils.transparentize(utils.CHART_COLORS.red, 0.5),  // Corrected
           },
           {
-            label: 'Dataset 2',
+            label: 'Insignificant Precipitation (<0.1 in)',
             data: dataset2.map(entry => entry.average_rides_per_day),
             borderColor: utils.CHART_COLORS.blue,  // Corrected
             backgroundColor: utils.transparentize(utils.CHART_COLORS.blue, 0.5),  // Corrected
