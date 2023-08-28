@@ -51,10 +51,6 @@ def welcome():
         "/api/v1.0/rides_by_season<br/>"
         "/api/v1.0/rides_sig_prcp_no_month<br/>"
         "/api/v1.0/rides_sig_prcp_yes_month<br/>"
-        #"/api/v1.0/without_station<br/>"
-        #"/api/v1.0/with_station<br/>"
-        #"/api/v1.0/with_lat_long<br/>"
-        #"/api/v1.0/route_distance<br/>"
     )
 
 @app.route("/api/v1.0/stations")
