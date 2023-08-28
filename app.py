@@ -130,4 +130,11 @@ def rides_sig_prcp_yes_month():
     return jsonify(list(sig_prcp_yes_month_string))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    #app.run(debug=True)
+    #Switched to false for heroku
+    app.run(debug=False)
+
+    #new code
+    # Use the Heroku-assigned port or default to 5000 if not provided
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
