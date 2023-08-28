@@ -10,11 +10,11 @@ Is there anything that will stop bikers in Chicago?
 
 ## Table of Contents
 
- * [Project Overview](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/edit/aileen/README.md#project-overview)
- * [Languages Used](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/edit/aileen/README.md#languages-used)
- * [Preparing the Data](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/edit/aileen/README.md#preparing-the-data)
- * [Processing the Data for Interactive Visualizations](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/edit/aileen/README.md#processing-the-data-for-interactive-visualizations)
- * [Key Takeaways](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/edit/aileen/README.md#key-takeaways)
+ * [Project Overview]()
+ * [Languages Used]()
+ * [Preparing the Data]()
+ * [Processing the Data for Interactive Visualizations]()
+ * [Key Takeaways](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/main/README.md#key-takeaways)
 
 ## Project Overview
    Using Divvy trip history data and OpenWeather API data, from January to December of 2022, our goal was to identify how many Divvy members keep riding, rain or shine.
