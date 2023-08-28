@@ -20,7 +20,8 @@ https://medium.com/@alexeysamoshkin/manage-git-work-tree-and-index-using-git-res
 
 https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
 
-https://www.pexels.com/photo/blue-bicycles-parked-on-the-street-4782738/ (banner source)
+https://openweathermap.org/api/one-call-3#history_daily_aggregation_how
+
 
 
 
