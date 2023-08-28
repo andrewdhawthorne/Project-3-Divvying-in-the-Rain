@@ -20,10 +20,11 @@ Is there anything that will stop bikers in Chicago?
    Using Divvy trip history data and OpenWeather API data, from January to December of 2022, our goal was to identify how many Divvy members keep riding, rain or shine.
 
    The research questions guiding our project were:
-   * What are the Top Ten Routes? 
-   * Which season(s) have the most and/or least Divvy Rides?
-   * How does the total count of Divvy Rides vary by month?
-   * How does precipitation affect the average daily rides?
+  * What are the top 10 start stations, top 10 end stations, and top 10 routes? 
+  * Which season(s) have the most and/or least Divvy Rides?
+  * How does the total count of Divvy Rides vary by month?
+  * How does precipitation affect the average daily rides?
+
 
 ## Languages Used
    * Python: pyMongo, flask, flask_cors
