@@ -12,8 +12,13 @@ fetch('http://127.0.0.1:5000/api/v1.0/rides_by_month')
 // Call the function with the provided JSON data
 function createLineChart(data) {
     console.log(data);
-    // Extract months and total rides from the JSON data
-    const months = data.map(entry => entry.month);
+    // Define an array of short month names
+    const shortMonthNames = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      ];
+
+    const months = data.map(entry => shortMonthNames[parseInt(entry.month) - 1]);
     const totalRides = data.map(entry => entry.total_rides);
 
     // Create a line chart
@@ -86,7 +91,20 @@ function createPieChart(data) {
           display: true,
           text: 'Rides by Type',
         },
-      },
+        plugins: {
+          tooltip: {
+              callbacks: {
+                  label: (context) => {
+                      const label = context.label || '';
+                      const value = context.parsed || 0;
+                      const total = counts.reduce((acc, curr) => acc + curr, 0);
+                      const percentage = ((value / total) * 100).toFixed(2);
+                      return `${label}: ${percentage}%`;
+                  },
+                },
+              },
+            },      
+          },
     });
 }
 
@@ -126,9 +144,14 @@ function createChart(dataset1, dataset2) {
       
     const utils = createUtils();
 
-    const labels = dataset1.map(entry => entry.month);
+    // Define an array of short month names
+    const shortMonthNames = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      ];
+    const months = dataset1.map(entry => shortMonthNames[parseInt(entry.month) - 1]);
     const data = {
-        labels: labels,
+        labels: months,
         datasets: [
           {
             label: 'Significant Precipitation (>=0.1 in)',
