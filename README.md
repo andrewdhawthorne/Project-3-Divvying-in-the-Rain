@@ -43,12 +43,13 @@ Within OpenWeather.ipynb we took our OpenWeather API and created it into a Dataf
 ### 1. Created and Cleaned Collections to parse through the data
    Removing null, empty strings, and zeros. 
 ### 2. Converted Queries to JSON data using Flask
-<img width="455" alt="Screenshot 2023-08-28 at 4 23 10 PM" src="https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/131564308/025bc253-a81c-4296-b935-a1c524fd2851">
+<img width="455" alt="Screenshot 2023-08-28 at 4 23 10 PM" src="https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/131564308/025bc253-a81c-4296-b935-a1c524fd2851"> 
+
 ### 3. Utilized Javascript files to create map with dropdown option and create charts
 ### 4. Incorporated our CSS file with HTML to build out the dashboard.
 
 ## Key Takeaways
-*Increased awareness of the process of using various applications to display findings to end user
-*Performing significant data merges on MongoDB vs. SQL
+* Increased awareness of the process of using various applications to display findings to end user
+* Performing significant data merges on MongoDB vs. SQL
 
 
