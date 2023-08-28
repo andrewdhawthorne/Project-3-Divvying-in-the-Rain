@@ -12,9 +12,9 @@ Is there anything that will stop bikers in Chicago?
 
  * [Project Overview](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/edit/aileen/README.md#project-overview)
  * [Languages Used](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/edit/aileen/README.md#languages-used)
- * [Preparing the Data]()
- * [Processing the Data fro Interactive Visualizations](url)
- * [Key Takeaways](url)
+ * [Preparing the Data](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/edit/aileen/README.md#preparing-the-data)
+ * [Processing the Data for Interactive Visualizations](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/edit/aileen/README.md#processing-the-data-for-interactive-visualizations)
+ * [Key Takeaways](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/edit/aileen/README.md#key-takeaways)
 
 ## Project Overview
 
