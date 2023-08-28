@@ -132,66 +132,6 @@ def rides_sig_prcp_yes_month():
     """Return list of rides by season."""
     sig_prcp_yes_month_string = db["sig_prcp_yes_month_with_string_id"].find()
     return jsonify(list(sig_prcp_yes_month_string))
-    #new_collection_test = db["sig_prcp_yes_month_with_string_id"].find()
-    #return jsonify(list(new_collection_test))
-
-#@app.route("/api/v1.0/without_station")
-
-#def without_station():
-    #"""Return a collection of rides without start and/or end stations."""
-    #rides_without_station = list(db['withoutStationName'].find())
-    #for ride in rides_without_station:
-            #ride['_id'] = str(ride['_id'])  # Convert ObjectId to string
-            #if 'weather_data' in ride:
-                #ride['weather_data']['_id'] = str(ride['weather_data']['_id'])  # Convert ObjectId to string in nested document
-
-    #return jsonify(rides_without_station)
-
-#@app.route("/api/v1.0/with_station")
-
-#def with_station():
-    #"""Return a collection of rides with start and/or end stations."""
-    #rides_with_station = list(db['withStationName'].find())
-    #for ride in rides_with_station:
-        #for ride in rides_with_station:
-            #ride['_id'] = str(ride['_id'])  # Convert ObjectId to string
-            #if 'weather_data' in ride:
-                #ride['weather_data']['_id'] = str(ride['weather_data']['_id'])  # Convert ObjectId to string in nested document
-
-    #return jsonify(rides_with_station)
-
-#@app.route("/api/v1.0/with_lat_long")
-
-#def with_lat_long():
-    #"""Return a collection of rides with latitude and longitude."""
-    #rides_with_lat_long = list(db['withLatLong'].find())
-
-    # Convert ObjectId to string and remove nested _id from weather_data
-   #rides_list = []
-    #for ride in rides_with_lat_long:
-        #ride['_id'] = str(ride['_id'])  # Convert ObjectId to string
-        #if 'weather_data' in ride:
-            #ride['weather_data']['_id'] = str(ride['weather_data']['_id'])  # Convert ObjectId to string in nested document
-            #del ride['weather_data']['_id']  # Remove nested _id field
-        #rides_list.append(ride)
-
-    #return jsonify(rides_list)
-
-#@app.route("/api/v1.0/route_distance")
-
-#def route_distance():
-    #"""Return a collection of rides with distance between start and end points."""
-    #rides_with_distance = list(db['RouteDistance'].find())
-
-     # Convert ObjectId to string and remove nested _id from weather_data
-    #rides_distance_list = []
-    #for ride in rides_with_distance:
-        #ride['_id'] = str(ride['_id'])  # Convert ObjectId to string
-        #ride['weather_data']['_id'] = str(ride['weather_data']['_id'])  # Convert ObjectId to string in nested document
-        #del ride['weather_data']['_id']  # Remove nested _id field
-        #rides_distance_list.append(ride)
-
-    #return jsonify(rides_distance_list)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -93,12 +93,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const markerType = isStartMarker ? "Start" : "End";
   
     let popupContent = `<b>${markerType} Station:</b> ${stationName}<br>`;
-    if (isStartMarker && route["start latitude"] === route["end latitude"] && route["start longitude"] === route["end longitude"]) {
-      popupContent += `<b>Ride Count:</b> ${route.count}`;
-    } else {
-      popupContent += `<b>Ride Count:</b> ${route.count}<br><b>Other Station:</b> ${route._id[isStartMarker ? "End Station" : "Start Station"]}`;
-    }
-  
+
+    popupContent += `<b>End Station:</b> ${route._id[isStartMarker ? "End Station" : "Start Station"]}<br><b>Ride Count:</b> ${route.count}`;
+    
     marker.bindPopup(popupContent);
     marker.openPopup();
   }
@@ -110,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     data.forEach(entry => {
       const marker = L.marker([entry.start_lat, entry.start_lng]).addTo(map);
-      marker.bindPopup(`<b>${entry.start_station_name}</b><br><b>ID:</b> ${entry._id}`);
+      marker.bindPopup(`<b>${entry.start_station_name}</b><br><b>`);
       markers.push(marker);
     });
   }
