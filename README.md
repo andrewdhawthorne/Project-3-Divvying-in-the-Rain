@@ -17,7 +17,7 @@ Is there anything that will stop bikers in Chicago?
  * [Key Takeaways](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/main/README.md#key-takeaways)
 
 ## Project Overview
-   Using Divvy trip history data and OpenWeather API data, from January to December of 2022, our goal was to identify how many Divvy members keep riding, rain or shine.
+   Our goal was to identify how many Divvy riders kept riding, rain or shine, using the Divvy trip history data and the OpenWeather API, between January 1st, 2022 to December 31st, 2022.
 
    The research questions guiding our project were:
   * What are the top 10 start stations, top 10 end stations, and top 10 routes? 
