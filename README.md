@@ -63,9 +63,7 @@ Downloaded [Monthly Historical Divvy Trip Data](https://divvybikes.com/system-da
   7. Stack Overflow. (2016, May 30). How to filter data in Mongo collection using PyMongo? https://stackoverflow.com/questions/37516219/how-to-filter-data-in-mongo-collection-using-pymongo
   8. Stack Overflow. (2015, April 11). String field value length in MongoDB. https://stackoverflow.com/questions/29577713/string-field-value-length-in-mongodb
   9. Stack Overflow. (2009, July 15). How do I force “git pull” to overwrite local files? https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
-  10. Stack Overflow. (2009, July 15). How do I force “git pull” to overwrite local files? https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
-  11. TheServerSide. (n.d.). Delete local Git branches after a merge and push to origin. https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/delete-local-git-branch-origin-force-merge-all
-  12. Tutorialspoint. (n.d.). MongoDB - Query Documents with OR Conditions. https://www.tutorialspoint.com/mongodb-query-to-get-documents-with-multiple-conditions-set-in-or
-  13. WeatherShack. (n.d.). Rain Measurement. https://www.weathershack.com/static/ed-rain-measurement.html
+  10. Tutorialspoint. (n.d.). MongoDB - Query Documents with OR Conditions. https://www.tutorialspoint.com/mongodb-query-to-get-documents-with-multiple-conditions-set-in-or
+  11. WeatherShack. (n.d.). Rain Measurement. https://www.weathershack.com/static/ed-rain-measurement.html
 
 
