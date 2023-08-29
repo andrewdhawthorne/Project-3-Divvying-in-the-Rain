@@ -23,5 +23,6 @@ https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite
 https://openweathermap.org/api/one-call-3#history_daily_aggregation_how
 
 
+https://www.weathershack.com/static/ed-rain-measurement.html
 
-
+https://www.chicago.gov/city/en/depts/cdot/provdrs/bike.html
