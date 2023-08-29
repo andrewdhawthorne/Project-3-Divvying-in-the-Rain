@@ -4,12 +4,10 @@ from flask_cors import CORS
 import pymongo
 from pymongo import MongoClient
 import os
-from config import connection_string
-
 
 ############
 #new for heroku
-
+connection_string = os.environ.get("CONNECTION_STRING")
 client = MongoClient(connection_string)
 db = client.chicago_bikes
 #################################################
