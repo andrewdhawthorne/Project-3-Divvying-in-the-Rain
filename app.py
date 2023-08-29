@@ -5,6 +5,10 @@ import pymongo
 from pymongo import MongoClient
 import os
 
+# Create a Flask app
+app = Flask(__name__)
+CORS(app)  # Enable CORS for the entire app
+
 #############
 #new for heroku
 connection_string = os.environ.get("CONNECTION_STRING")
@@ -33,9 +37,6 @@ sig_prcp_yes_month_string = db["sig_prcp_yes_month_with_string_id"]
 #withLatLong = db['withLatLong']
 #RouteDistance = db['RouteDistance']
 
-# Create a Flask app
-app = Flask(__name__)
-CORS(app)  # Enable CORS for the entire app
 
 # Define your Flask routes
 
