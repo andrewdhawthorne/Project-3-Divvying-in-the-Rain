@@ -4,14 +4,21 @@ from flask_cors import CORS
 import pymongo
 from pymongo import MongoClient
 import os
+from config import connection_string
 
+
+############
+#new for heroku
+
+client = MongoClient(connection_string)
+db = client.chicago_bikes
 #################################################
 # Database Setup
 #################################################
 
 # Connect to MongoDB
-mongo = MongoClient(port=27017)
-db = mongo.chicago_bikes
+#mongo = MongoClient(port=27017)
+#db = mongo.chicago_bikes
 
 divvy_ridedata_merged = db['divvy_ridedata_merged']
 Top10StartStations = db['Top10StartStations']
@@ -131,11 +138,11 @@ def rides_sig_prcp_yes_month():
     return jsonify(list(sig_prcp_yes_month_string))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    #app.run(debug=True)
     #Switched to false for heroku
-    #app.run(debug=False)
+    app.run(debug=False)
 
     #new code
     # Use the Heroku-assigned port or default to 5000 if not provided
-    #port = int(os.environ.get('PORT', 5000))
-    #app.run(host='0.0.0.0', port=port, debug=False)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
