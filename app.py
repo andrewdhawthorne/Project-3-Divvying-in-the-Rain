@@ -139,7 +139,7 @@ def rides_sig_prcp_yes_month():
 if __name__ == "__main__":
     #app.run(debug=True)
     #Switched to false for heroku
-    app.run(debug=False)
+    #app.run(debug=False)
 
     #new code
     # Use the Heroku-assigned port or default to 5000 if not provided
