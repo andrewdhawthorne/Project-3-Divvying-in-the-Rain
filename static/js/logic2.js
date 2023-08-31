@@ -1,5 +1,5 @@
 // Fetch JSON data from the provided URL
-fetch('http://127.0.0.1:5000/api/v1.0/rides_by_month')
+fetch('https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/rides_by_month')
   .then(response => response.json())
   .then(data => {
     // Call the function with fetched JSON data
@@ -55,7 +55,7 @@ function createLineChart(data) {
 }
 
 // Fetch JSON data from the provided URL
-fetch('http://127.0.0.1:5000/api/v1.0/rides_by_season')
+fetch('https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/rides_by_season')
   .then(response => response.json())
   .then(data => {
     // Call the function with fetched JSON data
@@ -109,10 +109,10 @@ function createPieChart(data) {
 }
 
 // Fetch JSON data from the provided URLs
-const fetchDataset1 = fetch('http://127.0.0.1:5000/api/v1.0/rides_sig_prcp_yes_month')
+const fetchDataset1 = fetch('https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/rides_sig_prcp_yes_month')
   .then(response => response.json());
 
-const fetchDataset2 = fetch('http://127.0.0.1:5000/api/v1.0/rides_sig_prcp_no_month')
+const fetchDataset2 = fetch('https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/rides_sig_prcp_no_month')
   .then(response => response.json());
 
 // Wait for both dataset fetches to complete
