@@ -22,7 +22,7 @@ db = client.chicago_bikes
 #mongo = MongoClient(port=27017)
 #db = mongo.chicago_bikes
 
-divvy_ridedata_merged = db['divvy_ridedata_merged']
+#divvy_ridedata_merged = db['divvy_ridedata_merged']
 Top10StartStations = db['Top10StartStations']
 Top10EndStations = db['Top10EndStations']
 Top10Routes = db['Top10Routes']

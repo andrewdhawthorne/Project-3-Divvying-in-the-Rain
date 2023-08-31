@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
   const urls = {
-    location1: 'http://127.0.0.1:5000/api/v1.0/start_stations',
-    location2: 'http://127.0.0.1:5000/api/v1.0/end_stations',
-    location3: 'http://127.0.0.1:5000/api/v1.0/top_routes',
-    location4: 'http://127.0.0.1:5000/api/v1.0/stations',
+    location1: 'https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/start_stations',
+    location2: 'https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/end_stations',
+    location3: 'https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/top_routes',
+    location4: 'https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/stations',
   };
 
   const mapCenter = [41.8781, -87.6798];
