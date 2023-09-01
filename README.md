@@ -1,6 +1,8 @@
 # Project-3-Divvying-in-the-Rain
 Is there anything that will stop bikers in Chicago? 
 
+Link to website: https://andrewdhawthorne.github.io/Project-3-Divvying-in-the-Rain/ 
+
 ## Team Members
    * Jason Pealy
    * Andrew Hawthorne
@@ -65,5 +67,3 @@ Downloaded [Monthly Historical Divvy Trip Data](https://divvybikes.com/system-da
   9. Stack Overflow. (2009, July 15). How do I force “git pull” to overwrite local files? https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
   10. Tutorialspoint. (n.d.). MongoDB - Query Documents with OR Conditions. https://www.tutorialspoint.com/mongodb-query-to-get-documents-with-multiple-conditions-set-in-or
   11. WeatherShack. (n.d.). Rain Measurement. https://www.weathershack.com/static/ed-rain-measurement.html
-
-
