@@ -1,69 +1,10 @@
-# Project-3-Divvying-in-the-Rain
-Is there anything that will stop bikers in Chicago? 
+Overview of contributions: 
 
-## Team Members
-   * Jason Pealy
-   * Andrew Hawthorne
-   * Ben Richardson
-   * Aileen Alvarez
-   * Alicia Hlavac
+- "database" notebook: imported 12 divvy ride csv files and set up 'chicago_bikes' database with 'divvy_ridedata' collection 
+- "AH-queries" notebook: converted precipication value in 'weather_daily' collection from mm to inches; created new 'sig_prcp' field with 'yes' or 'no' based on significant precipitaton being >= .1 inches; created new field for avg temp based on morning, afternoon, and evening temps in the weather data
+- "collections" folder: created a notebook to have a print(.find_one()) for each collection in the database for easier visibility; attempted to remove dictionary that was inside 'weather_data' field in several of the collections that had resulted from the initial merge of ride data and weather data, and was causing issues with Flask API routes - ultimately several routes were not needed/used 
+- provided live assistance with queries in "final" and "all" notebookes 
+- "app.py": created the routes for top start and end stations, top routes, daily weather, rides by month, and rides by season 
+- visualizations: created the monthly rides line chart and seasonal rides pie chart in logic2.js with corresponding updates to html and css; found the header image and made the dashboard title banner  
 
-## Table of Contents
-
- * [Project Overview](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/main/README.md#project-overview)
- * [Languages Used](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/main/README.md#languages-used)
- * [Preparing the Data](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/main/README.md#preparing-the-data)
- * [Processing the Data for Interactive Visualizations](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/main/README.md#processing-the-data-for-interactive-visualization)
- * [Key Takeaways](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/main/README.md#key-takeaways)
-
-## Project Overview
-   Our goal was to identify how many Divvy riders kept riding, rain or shine, using the Divvy trip history data and the OpenWeather API, between January 1st, 2022 to December 31st, 2022.
-
-   The research questions guiding our project were:
-  * What are the top 10 start stations, top 10 end stations, and top 10 routes? 
-  * Which season(s) have the most and/or least Divvy Rides?
-  * How does the total count of Divvy Rides vary by month?
-  * How does precipitation affect the average daily rides?
-
-
-## Languages Used
-   * Python: pyMongo, flask, flask_cors
-   * JavaScript
-   * HTML
-   * CSS
-
-## Preparing the Data
-  1. Sourcing the Data:
-Downloaded [Monthly Historical Divvy Trip Data](https://divvybikes.com/system-data) in CSV format for all of 2022.   2. Converting API To CSV
-   Within OpenWeather.ipynb we took our OpenWeather API and created it into a Dataframe to then export as a CSV
-  3. Imported CSVs to MongoDB format
-<img width="618" alt="Screenshot 2023-08-28 at 4 15 48 PM" src="https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/131564308/013fe41b-becc-460a-89f0-2988d1400170">
-
-## Processing the Data for Interactive Visualization
-1. Created and Cleaned Collections to parse through the data
-   Removing null, empty strings, and zeros.
-2. Converted Queries to JSON data using Flask
-<img width="455" alt="Screenshot 2023-08-28 at 4 23 10 PM" src="https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/131564308/025bc253-a81c-4296-b935-a1c524fd2851"> 
-
-3. Utilized Javascript files to create map with dropdown option and charts
-4. Incorporated our CSS file with HTML to build out the dashboard.
-   
-   <img width="790" alt="Screenshot 2023-08-28 at 10 49 35 AM" src="https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/131564308/6eaad715-d916-4104-a2c6-6e2e9d081e5f">
-## Key Takeaways
-   * Increased awareness of the process of using various applications to display findings to end user
-   * Performing significant data merges on MongoDB vs. SQL
-
-## Citations 
-  1. City of Chicago. (n.d.). Chicago Bike Resources. https://www.chicago.gov/city/en/depts/cdot/provdrs/bike.html
-  2. MongoDB. (n.d.). Aggregation Pipeline Operators - $merge. https://www.mongodb.com/docs/manual/reference/operator/aggregation/merge/
-  3. MongoDB. (n.d.). Aggregation Pipeline Operators - $filter. https://www.mongodb.com/docs/manual/reference/operator/aggregation/filter/
-  4. OpenWeather. (n.d.). One Call API - Historical weather data. https://openweathermap.org/api/one-call-3#history_daily_aggregation_how
-  5. Samoshkin, A. (2021, March 23). Manage Git worktree and index using git restore command. https://medium.com/@alexeysamoshkin/manage-git-work-tree-and-index-using-git-restore-command-d90d90f04c4f
-  6. Stack Overflow. (2019, June 18). Ignoring null values within an aggregate operation in MongoDB. https://stackoverflow.com/questions/56131463/ignoring-null-values-within-an-aggregate-operation-in-mongodb
-  7. Stack Overflow. (2016, May 30). How to filter data in Mongo collection using PyMongo? https://stackoverflow.com/questions/37516219/how-to-filter-data-in-mongo-collection-using-pymongo
-  8. Stack Overflow. (2015, April 11). String field value length in MongoDB. https://stackoverflow.com/questions/29577713/string-field-value-length-in-mongodb
-  9. Stack Overflow. (2009, July 15). How do I force “git pull” to overwrite local files? https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
-  10. Tutorialspoint. (n.d.). MongoDB - Query Documents with OR Conditions. https://www.tutorialspoint.com/mongodb-query-to-get-documents-with-multiple-conditions-set-in-or
-  11. WeatherShack. (n.d.). Rain Measurement. https://www.weathershack.com/static/ed-rain-measurement.html
-
-
+Along with each group member doing their own pieces, we also were available to go over each other's questions/trobleshooting and worked on the majority of the pieces together! 
