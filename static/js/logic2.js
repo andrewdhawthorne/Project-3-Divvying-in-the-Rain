@@ -190,6 +190,14 @@ function createChart(dataset1, dataset2) {
       }
     });
   }
+  // Fetch URL for average temperature data
+  fetch('https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/weather_daily')
+    .then(response => response.json())
+    .then(data => {
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
 
 const borderColor1 = utils.CHART_COLORS.red;
 const transparentColor1 = utils.transparentize(utils.CHART_COLORS.red, 0.5);
