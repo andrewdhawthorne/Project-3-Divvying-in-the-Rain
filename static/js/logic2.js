@@ -190,14 +190,129 @@ function createChart(dataset1, dataset2) {
       }
     });
   }
-  // Fetch URL for average temperature data
-  fetch('https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/daily_weather')
-    .then(response => response.json())
-    .then(data => {
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
+ // Fetch URL for average temperature data
+fetch('https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/daily_weather')
+.then(response => response.json())
+.then(data => {
+  // Call a function to create the temperature chart
+  createTemperatureChart(data);
+})
+.catch(error => {
+  console.error('Error fetching data:', error);
+});
 
+// Create a function to calculate the average min/max temperatures per month
+function createTemperatureChart(data) {
+// Initialize arrays to store monthly data
+const months = [];
+const avgMinTemps = [];
+const avgMaxTemps = [];
+
+// Group data by month and calculate average min and max temps
+for (let month = 1; month <= 12; month++) {
+  const monthlyData = data.filter(entry => new Date(entry.date).getUTCMonth() + 1 === month);
+
+  if (monthlyData.length > 0) {
+    const avgMinTemp = monthlyData.reduce((sum, entry) => sum + entry.min_temp, 0) / monthlyData.length;
+    const avgMaxTemp = monthlyData.reduce((sum, entry) => sum + entry.max_temp, 0) / monthlyData.length;
+
+    months.push(month); // You can use short month names if needed (e.g., 'Jan')
+    avgMinTemps.push(avgMinTemp);
+    avgMaxTemps.push(avgMaxTemp);
+  } else {
+    // No data for this month
+    months.push(month);
+    avgMinTemps.push(null); // Handle missing data
+    avgMaxTemps.push(null); // Handle missing data
+  }
+}
+
+// Call a function to create the line chart with the processed data
+createTempChart(months, avgMinTemps, avgMaxTemps);
+}
+
+function createTempChart(months, avgMinTemps, avgMaxTemps) {
+const ctx = document.getElementById('temperatureChart').getContext('2d');
+const tempChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: months, // Use short month names or numbers
+    datasets: [
+      {
+        label: 'Average Min Temperature (°F)',
+        data: avgMinTemps,
+        borderColor: 'blue',
+        backgroundColor: 'rgba(0, 0, 255, 0.1)',
+      },
+      {
+        label: 'Average Max Temperature (°F)',
+        data: avgMaxTemps,
+        borderColor: 'red',
+        backgroundColor: 'rgba(255, 0, 0, 0.1)',
+      },
+    ],
+  },
+  options: {
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Month',
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Temperature (°C)',
+        },
+      },
+    },
+  },
+});
+}
+function createYrmpChart(months, avgMinTemps, avgMaxTemps) {
+  const ctx = document.getElementById('temperatureChart').getContext('2d');
+  // Define an array of short month names
+  const shortMonthNames = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
+  const tempChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: months, // Use short month names or numbers
+      datasets: [
+        {
+          label: 'Average Min Temperature (°F)',
+          data: avgMinTemps,
+          borderColor: 'blue',
+          backgroundColor: 'rgba(0, 255, 0, 0.1)',
+        },
+        {
+          label: 'Average Max Temperature (°F)',
+          data: avgMaxTemps,
+          borderColor: 'red',
+          backgroundColor: 'rgba(255, 0, 0, 0.1)',
+        },
+      ],
+    },
+    options: {
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Month',
+          },
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Temperature (°F)',
+          },
+        },
+      },
+    },
+  });
+}
 const borderColor1 = utils.CHART_COLORS.red;
 const transparentColor1 = utils.transparentize(utils.CHART_COLORS.red, 0.5);
