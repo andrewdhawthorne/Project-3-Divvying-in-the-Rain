@@ -191,7 +191,7 @@ function createChart(dataset1, dataset2) {
     });
   }
   // Fetch URL for average temperature data
-  fetch('https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/weather_daily')
+  fetch('https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/daily_weather')
     .then(response => response.json())
     .then(data => {
     })
