@@ -232,51 +232,56 @@ createTempChart(months, avgMinTemps, avgMaxTemps);
 }
 
 function createTempChart(months, avgMinTemps, avgMaxTemps) {
-const ctx = document.getElementById('temperatureChart').getContext('2d');
-const tempChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: months, // Use short month names or numbers
-    datasets: [
-      {
-        label: 'Average Min Temperature (°F)',
-        data: avgMinTemps,
-        borderColor: 'blue',
-        backgroundColor: 'rgba(0, 0, 255, 0.1)',
-      },
-      {
-        label: 'Average Max Temperature (°F)',
-        data: avgMaxTemps,
-        borderColor: 'red',
-        backgroundColor: 'rgba(255, 0, 0, 0.1)',
-      },
-    ],
-  },
-  options: {
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: 'Month',
-        },
-      },
-      y: {
-        title: {
-          display: true,
-          text: 'Temperature (°C)',
-        },
-      },
-    },
-  },
-});
-}
-function createYrmpChart(months, avgMinTemps, avgMaxTemps) {
-  const ctx = document.getElementById('temperatureChart').getContext('2d');
-  // Define an array of short month names
   const shortMonthNames = [
     'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+  ];
+
+  const ctx = document.getElementById('temperatureChart').getContext('2d');
+  const temperatureChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: months.map(month => shortMonthNames[month - 1]), // Map month numbers to short names
+      datasets: [
+        {
+          label: 'Average Min Temperature (°F)',
+          data: avgMinTemps,
+          borderColor: 'blue',
+          backgroundColor: 'rgba(0, 0, 255, 0.1)',
+        },
+        {
+          label: 'Average Max Temperature (°F)',
+          data: avgMaxTemps,
+          borderColor: 'red',
+          backgroundColor: 'rgba(255, 0, 0, 0.1)',
+        },
+      ],
+    },
+    options: {
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Month',
+          },
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Temperature (°C)',
+          },
+        },
+      },
+    },
+  });
+}
+function createYrmpChart(months, avgMinTemps, avgMaxTemps) {
+    // Define an array of short month names
+    const shortMonthNames = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
     ];
+  const ctx = document.getElementById('temperatureChart').getContext('2d');
   const tempChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -309,6 +314,7 @@ function createYrmpChart(months, avgMinTemps, avgMaxTemps) {
             display: true,
             text: 'Temperature (°F)',
           },
+
         },
       },
     },
