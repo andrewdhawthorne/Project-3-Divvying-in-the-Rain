@@ -1,140 +1,198 @@
 /* Style for the header */
+
 header {
-  position: relative;
-  text-align: center;
+    position: relative;
+    text-align: center;
 }
+
 
 /* Style for the header image */
+
 header img {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
+
 /* Style for the text over the image */
+
 .header-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size:50px;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .block-container {
-  display: block;
-  text-align: center;
-  padding: 30px;
-  background-color: #f7f9fc;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px auto; /* Center the block container on the page */
+    display: block;
+    text-align: center;
+    padding: 30px;
+    background-color: #f7f9fc;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    /* Center the block container on the page */
 }
 
 #map {
-  width: 100%; /* Make the map fill the width of the screen */
-  height: 600px; /* Adjust the height as needed */
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #ccc; /* Add a border for visibility */
-  border-radius: 5px;
-  margin-top: 20px; /* Add some space between the map and other elements */
+    width: 100%;
+    /* Make the map fill the width of the screen */
+    height: 600px;
+    /* Adjust the height as needed */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    /* Add a border for visibility */
+    border-radius: 5px;
+    margin-top: 20px;
+    /* Add some space between the map and other elements */
 }
 
 .section-header {
-  margin-bottom: 20px;
-  color: #333;
-  font-size: 20px; /* Adjust the font size as needed */
-  font-weight: bold; /* Make the text bold */
-  text-align: center; /* Center the section header text */
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 20px;
+    /* Adjust the font size as needed */
+    font-weight: bold;
+    /* Make the text bold */
+    text-align: center;
+    /* Center the section header text */
 }
 
 .dropdown-container {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .dropdown-label {
-  display: block;
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 5px;
+    display: block;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
 }
 
 .dropdown {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #333;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
 }
 
 .chart-container {
-  display: flex;
+    display: flex;
 }
 
 .line-chart {
-  flex: 1;
-  padding: 20px;
+    flex: 1;
+    padding: 20px;
 }
 
 .pie-chart {
-  flex: 1;
-  padding: 20px;
+    flex: 1;
+    padding: 20px;
 }
+
 
 /* Style the section headers for the charts */
+
 .section-header {
-  margin-bottom: 20px;
-  color: #333;
-  font-size: 20px; /* Adjust the font size as needed */
-  font-weight: bold; /* Make the text bold */
-  text-align: center; /* Center the section header text */
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 20px;
+    /* Adjust the font size as needed */
+    font-weight: bold;
+    /* Make the text bold */
+    text-align: center;
+    /* Center the section header text */
 }
+
 
 /* Style the line chart canvas element */
+
 #ridesChart {
-  max-width: 100%;
-  height: auto;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
+
 /* Style the pie chart canvas element */
+
 #pieChart {
-  width: 100%;
-  max-height: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    width: 100%;
+    max-height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .weather-chart {
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
+
 
 /* Style the section header for the weather chart */
+
 .weather-chart h4 {
-  margin-bottom: 20px;
-  color: #333;
-  font-size: 20px; /* Adjust the font size as needed */
-  font-weight: bold; /* Make the text bold */
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 20px;
+    /* Adjust the font size as needed */
+    font-weight: bold;
+    /* Make the text bold */
 }
+
 
 /* Style the weather chart canvas element */
+
 #weatherChart {
-  width: 100%;
-  max-height: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    width: 100%;
+    max-height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
+/* Style the temperature chart canvas element */
 
+.temperature-chart {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style the temperature chart canvas element */
+
+#temperatureChart {
+    width: 100%;
+    max-height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the temperature chart canvas element */
+
+.precipitation-chart {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style the temperature chart canvas element */
+
+#precipitationChart {
+    width: 100%;
+    max-height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
