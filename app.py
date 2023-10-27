@@ -8,9 +8,7 @@ import os
 # Create a Flask app
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire app
-# Connect to MongoDB (for a local MongoDB instance)
-mongo = MongoClient(port=27017)
-db = mongo.chicago_bikes
+
 ############
 #new for heroku
 # connection_string = os.environ.get("CONNECTION_STRING")
@@ -21,8 +19,8 @@ db = mongo.chicago_bikes
 #################################################
 
 # Connect to MongoDB
-#mongo = MongoClient(port=27017)
-#db = mongo.chicago_bikes
+mongo = MongoClient(port=27017)
+db = mongo.chicago_bikes
 
 #divvy_ridedata_merged = db['divvy_ridedata_merged']
 Top10StartStations = db['Top10StartStations']
@@ -139,7 +137,7 @@ def rides_sig_prcp_yes_month():
     return jsonify(list(sig_prcp_yes_month_string))
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(port=5000, debug=True)
     #Switched to false for heroku
     #app.run(debug=False)
 

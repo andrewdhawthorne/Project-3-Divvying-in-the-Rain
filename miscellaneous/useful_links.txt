@@ -26,3 +26,5 @@ https://openweathermap.org/api/one-call-3#history_daily_aggregation_how
 https://www.weathershack.com/static/ed-rain-measurement.html
 
 https://www.chicago.gov/city/en/depts/cdot/provdrs/bike.html
+
+https://auth0.com/blog/developing-restful-apis-with-python-and-flask/
