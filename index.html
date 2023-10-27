@@ -6,20 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chicago Divvy Rides</title>
+
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 
     <body>
+
         <!-- Header with image -->
         <header>
             <img src="Images/header_bikes.jpg" alt="Header Image">
             <div class="header-text">Divvying in the Rain (2022)</div>
         </header>
+
         <!-- The div that holds our map -->
         <div class="block-container">
             <h1 class="section-header">Chicago Divvy Rides Map</h1>
+
             <div class="dropdown-container">
                 <select id="location-dropdown" class="dropdown">
                         <option value="location4" selected>All Stations</option>
@@ -29,11 +34,13 @@
                         <!-- Add more options as needed -->
                     </select>
             </div>
+
             <!-- The map container -->
             <div id="map">
                 <!-- The map will be rendered here -->
             </div>
         </div>
+
         <div class="chart-container">
             <div class="line-chart">
                 <h2 class="section-header">Divvy Rides Per Month</h2>
@@ -53,25 +60,31 @@
                 <select id="chartType">
                   <option value="months">By Months</option>
                   <option value="seasons">By Seasons</option>
-              </select>
+                </select>
             </div>
             <canvas id="weatherChart"></canvas>
         </div>
+
         <!-- min_temp chart, max temp chart -->
-        <div class="temperature-chart">
-            <h5 class="section-header">Average Minimum and Maximum Temperature Per Month</h5>
+        <div class="temperatureChart">
+            <h4 class="section-header">Average Minimum and Maximum Temperature Per Month</h4>
             <canvas id="temperatureChart"></canvas>
         </div>
-        <div class="precipitation-chart">
+
+        <!-- Precipitation chart -->
+        <div class="precipitationChart">
             <h5 class="section-header">Average Precipitation Per Month</h5>
             <canvas id="precipitationChart"></canvas>
         </div>
         <!-- Leaflet JS -->
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
         <!-- D3 JavaScript -->
         <script src="https://d3js.org/d3.v7.min.js"></script>
+
         <!-- Chart.js -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
         <!-- Our JavaScript -->
         <script type="text/javascript" src="static/js/logic.js"></script>
         <script type="text/javascript" src="static/js/logic2.js"></script>

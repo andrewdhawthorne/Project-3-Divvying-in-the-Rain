@@ -167,7 +167,7 @@ body {
 
 /* Style the temperature chart canvas element */
 
-.temperature-chart {
+.temperatureChart {
     text-align: center;
     margin-top: 20px;
 }
@@ -183,7 +183,7 @@ body {
 
 /* Style the temperature chart canvas element */
 
-.precipitation-chart {
+.precipitationChart {
     text-align: center;
     margin-top: 20px;
 }
