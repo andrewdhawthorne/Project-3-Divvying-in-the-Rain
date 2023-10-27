@@ -294,6 +294,7 @@ function createTemperatureCalc(data) {
             months.push(month);
             avgMinTemps.push(avgMinTemp);
             avgMaxTemps.push(avgMaxTemp);
+
         } else {
             // No data for this month
             months.push(month);
@@ -350,79 +351,79 @@ function createTemperatureChart(months, avgMinTemps, avgMaxTemps) {
         },
     });
 }
-// // Fetch URL for average precipitation data
-// fetch('https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/daily_weather')
-//     .then(response => response.json())
-//     .then(data => {
-//         // Call a function to create the precipitation chart
-//         createPrecipitationChart(data);
-//     })
-//     .catch(error => {
-//         console.error('Error fetching data:', error);
-//     });
+// Fetch URL for average precipitation data
+fetch('http://localhost:5000/api/v1.0/daily_weather')
+    .then(response => response.json())
+    .then(data => {
+        // Call a function to create the precipitation chart
+        createPrecipitationChart(data);
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
 
-// // Create a function to calculate the average monthly precipitation
-// function createPrecipitationChart(data) {
-//     // Initialize arrays to store monthly data
-//     const months = [];
-//     const avgPrecipitation = [];
+// Create a function to calculate the average monthly precipitation
+function createPrecipitationChart(data) {
+    // Initialize arrays to store monthly data
+    const months = [];
+    const avgPrecipitation = [];
 
-//     // Group data by month and calculate average precipitation
-//     for (let month = 1; month <= 12; month++) {
-//         const monthlyData = data.filter(entry => new Date(entry.date).getMonth() + 1 === month);
+    // Group data by month and calculate average precipitation
+    for (let month = 1; month <= 12; month++) {
+        const monthlyData = data.filter(entry => new Date(entry.date).getMonth() + 1 === month);
 
-//         if (monthlyData.length > 0) {
-//             const avgPrecip = monthlyData.reduce((sum, entry) => sum + entry.precipitation, 0) / monthlyData.length;
+        if (monthlyData.length > 0) {
+            const avgPrecip = monthlyData.reduce((sum, entry) => sum + entry.precipitation, 0) / monthlyData.length;
 
-//             months.push(month);
-//             avgPrecipitation.push(avgPrecip);
-//         } else {
-//             // No data for this month
-//             months.push(month);
-//             // Handle missing data
-//             avgPrecipitation.push(null);
-//         }
-//     }
+            months.push(month);
+            avgPrecipitation.push(avgPrecip);
+        } else {
+            // No data for this month
+            months.push(month);
+            // Handle missing data
+            avgPrecipitation.push(null);
+        }
+    }
 
-//     // Call a function to create the line chart with the processed precipitation data
-//     createPrecipitationLineChart(months, avgPrecipitation);
-// }
+    // Call a function to create the line chart with the processed precipitation data
+    createPrecipitationLineChart(months, avgPrecipitation);
+}
 
-// function createPrecipitationLineChart(months, avgPrecipitation) {
-//     const shortMonthNames = [
-//         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-//         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-//     ];
+function createPrecipitationLineChart(months, avgPrecipitation) {
+    const shortMonthNames = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
 
-//     const ctx = document.getElementById('precipitationChart').getContext('2d');
-//     const precipitationChart = new Chart(ctx, {
-//         type: 'line',
-//         data: {
-//             labels: months.map(month => shortMonthNames[month - 1]), // Map month numbers to short names
-//             datasets: [{
-//                 label: 'Average Monthly Precipitation (mm)',
-//                 data: avgPrecipitation,
-//                 borderColor: 'blue',
-//                 backgroundColor: 'rgba(0, 0, 255, 0.1)',
-//             }, ],
-//         },
-//         options: {
-//             scales: {
-//                 x: {
-//                     title: {
-//                         display: true,
-//                         text: 'Month',
-//                     },
-//                 },
-//                 y: {
-//                     title: {
-//                         display: true,
-//                         text: 'Precipitation (mm)',
-//                     },
-//                 },
-//             },
-//         },
-//     });
-// }
+    const ctx = document.getElementById('precipitationChart').getContext('2d');
+    const precipitationChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: months.map(month => shortMonthNames[month - 1]), // Map month numbers to short names
+            datasets: [{
+                label: 'Average Monthly Precipitation (mm)',
+                data: avgPrecipitation,
+                borderColor: 'blue',
+                backgroundColor: 'rgba(0, 0, 255, 0.1)',
+            }, ],
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Month',
+                    },
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Precipitation (mm)',
+                    },
+                },
+            },
+        },
+    });
+}
 // const borderColor1 = utils.CHART_COLORS.red;
 // const transparentColor1 = utils.transparentize(utils.CHART_COLORS.red, 0.5);
