@@ -1,195 +1,181 @@
-// // Fetch JSON data from the provided URLs
-// const fetchDataset1 = fetch(
-//     "https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/rides_sig_prcp_yes_month"
-// ).then((response) => response.json());
+// Function to create and manage a chart displaying ride data
+function createChart(dataset1, dataset2) {
+    // Initializes utility functions and chart color settings
+    const utils = createUtils();
 
-// const fetchDataset2 = fetch(
-//     "https://divvy-bikes-66f749958645.herokuapp.com/api/v1.0/rides_sig_prcp_no_month"
-// ).then((response) => response.json());
+    // Wait until the DOM is fully loaded before creating the chart
+    document.addEventListener("DOMContentLoaded", function() {
+        // Set initial chart display to monthly data
+        updateChartByMonths(dataset1, dataset2);
+    });
 
-// // Wait for both dataset fetches to complete
-// Promise.all([fetchDataset1, fetchDataset2])
-//     .then(([dataset1, dataset2]) => {
-//         // Call the function to create the chart with the fetched datasets
-//         createChart(dataset1, dataset2);
-//     })
-//     .catch((error) => {
-//         console.error("Error fetching data:", error);
-//     });
+    // Utility functions for chart color and opacity management
+    function createUtils() {
+        return {
+            CHART_COLORS: {
+                red: "rgba(255, 0, 0, 1)",
+                green: "rgba(0, 255, 0, 1)",
+                blue: "rgba(0, 0, 255, 1)",
+                // Define other colors as needed
+            },
+            // Function to adjust color opacity
+            transparentize: (color, opacity) => {
+                const rgbaColor = color.replace("1)", `${opacity})`);
+                return rgbaColor;
+            },
+        };
+    }
 
-// function createChart(dataset1, dataset2) {
-//     function createUtils() {
-//         return {
-//             CHART_COLORS: {
-//                 red: "rgba(255, 0, 0, 1)",
-//                 green: "rgba(0, 255, 0, 1)",
-//                 blue: "rgba(0, 0, 255, 1)",
-//                 // Define other colors as needed
-//             },
-//             transparentize: (color, opacity) => {
-//                 const rgbaColor = color.replace("1)", `${opacity})`);
-//                 return rgbaColor;
-//             },
-//         };
-//     }
-//     const utils = createUtils();
+    // Function to safely remove the existing chart to prevent memory leaks
+    function destroyChart() {
+        if (currentChart) {
+            currentChart.destroy();
+        }
+    }
 
-//     document.addEventListener("DOMContentLoaded", function() {
-//         // Define an array of short month names
-//         const shortMonthNames = [
-//             "Jan", "Feb", "Mar",
-//             "Apr", "May", "Jun",
-//             "Jul", "Aug", "Sep",
-//             "Oct", "Nov", "Dec",
-//         ];
+    // Function to create a line chart with given context, labels, and datasets
+    function createLineChart(ctx, labels, datasets) {
+        const options = {
+            // Configuration for chart axes
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: labels.includes("Winter") ? "Season" : "Month",
+                    },
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: "Average Rides per Day",
+                    },
+                },
+            },
+        };
 
-//         // Initial chart creation
-//         updateChartByMonths(dataset1, dataset2);
+        // Creates a new chart with the specified context, data, and options
+        currentChart = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: labels,
+                datasets: datasets
+            },
+            options: options
+        });
+    }
 
-//         // Chart creation based on initial selection
-//         function updateChartByMonths(dataset1, dataset2) {
-//             const months = dataset1.map(
-//                 (entry) => shortMonthNames[parseInt(entry.month) - 1]
-//             );
-//             const data = {
-//                 labels: months,
-//                 datasets: [{
-//                         label: "Significant Precipitation (>=0.1 in)",
-//                         data: dataset1.map((entry) => entry.average_rides_per_day),
-//                         borderColor: utils.CHART_COLORS.red, // Corrected
-//                         backgroundColor: utils.transparentize(utils.CHART_COLORS.red, 0.5), // Corrected
-//                     },
-//                     {
-//                         label: "Insignificant Precipitation (<0.1 in)",
-//                         data: dataset2.map((entry) => entry.average_rides_per_day),
-//                         borderColor: utils.CHART_COLORS.blue, // Corrected
-//                         backgroundColor: utils.transparentize(utils.CHART_COLORS.blue, 0.5), // Corrected
-//                     },
-//                 ],
-//             };
+    // Function to update the chart data for monthly view
+    function updateChartByMonths(dataset1, dataset2) {
+        // Map the dataset month values to short month names
+        const months = dataset1.map(
+            (entry) => shortMonthNames[parseInt(entry.month) - 1]
+        );
+        // Prepare chart data using the datasets provided
+        const data = {
+            labels: months,
+            datasets: [{
+                    label: "Significant Precipitation (>=0.1 in)",
+                    data: dataset1.map((entry) => entry.average_rides_per_day),
+                    borderColor: utils.CHART_COLORS.red, // Corrected
+                    backgroundColor: utils.transparentize(utils.CHART_COLORS.red, 0.5), // Corrected
+                },
+                {
+                    label: "Insignificant Precipitation (<0.1 in)",
+                    data: dataset2.map((entry) => entry.average_rides_per_day),
+                    borderColor: utils.CHART_COLORS.blue, // Corrected
+                    backgroundColor: utils.transparentize(utils.CHART_COLORS.blue, 0.5), // Corrected
+                },
+            ],
+        };
 
-//             const ctx = document.getElementById("weatherChart").getContext("2d");
-//             const weatherChart = new Chart(ctx, {
-//                 type: "line",
-//                 data: data,
-//                 options: {
-//                     scales: {
-//                         x: {
-//                             title: {
-//                                 display: true,
-//                                 text: "Month",
-//                             },
-//                         },
-//                         y: {
-//                             title: {
-//                                 display: true,
-//                                 text: "Average Rides per Day",
-//                             },
-//                         },
-//                     },
-//                 },
-//             });
-//         }
-//         updateChartBySeasons(dataset1, dataset2);
-//         // Perform calculations for seasons
-//         function updateChartBySeasons(dataset1, dataset2) {
-//             // Initialize arrays to store data by season
-//             const seasons = ["Winter", "Spring", "Summer", "Autumn"];
-//             const significantPrecipitation = [0, 0, 0, 0]; // Average rides for significant precipitation by season
-//             const insignificantPrecipitation = [0, 0, 0, 0]; // Average rides for insignificant precipitation by season
+        // Remove any existing chart and create a new one with month data
+        destroyChart();
+        const ctx = document.getElementById("weatherChart").getContext("2d");
+        createLineChart(ctx, months, [{
+                label: "Significant Precipitation (>=0.1 in)",
+                data: dataset1.map((entry) => entry.average_rides_per_day),
+                borderColor: utils.CHART_COLORS.red,
+                backgroundColor: utils.transparentize(utils.CHART_COLORS.red, 0.5),
+            },
+            {
+                label: "Insignificant Precipitation (<0.1 in)",
+                data: dataset2.map((entry) => entry.average_rides_per_day),
+                borderColor: utils.CHART_COLORS.blue,
+                backgroundColor: utils.transparentize(utils.CHART_COLORS.blue, 0.5),
+            }
+        ]);
+    }
 
-//             // Group data by season and calculate the averages
-//             dataset1.forEach((entry) => {
-//                 const month = parseInt(entry.month);
-//                 if (month >= 12 || month <= 2) {
-//                     // Winter
-//                     significantPrecipitation[0] += entry.average_rides_per_day;
-//                 } else if (month >= 3 && month <= 5) {
-//                     // Spring
-//                     significantPrecipitation[1] += entry.average_rides_per_day;
-//                 } else if (month >= 6 && month <= 8) {
-//                     // Summer
-//                     significantPrecipitation[2] += entry.average_rides_per_day;
-//                 } else {
-//                     // Autumn
-//                     significantPrecipitation[3] += entry.average_rides_per_day;
-//                 }
-//             });
+    // Function to update the chart data for seasonal view
+    function updateChartBySeasons(dataset1, dataset2) {
+        // Define the labels for the seasons
+        const seasons = ["Winter", "Spring", "Summer", "Autumn"];
+        const significantPrecipitation = [0, 0, 0, 0]; // Average rides for significant precipitation by season
+        const insignificantPrecipitation = [0, 0, 0, 0]; // Average rides for insignificant precipitation by season
 
-//             dataset2.forEach((entry) => {
-//                 const month = parseInt(entry.month);
-//                 if (month >= 12 || month <= 2) {
-//                     // Winter
-//                     insignificantPrecipitation[0] += entry.average_rides_per_day;
-//                 } else if (month >= 3 && month <= 5) {
-//                     // Spring
-//                     insignificantPrecipitation[1] += entry.average_rides_per_day;
-//                 } else if (month >= 6 && month <= 8) {
-//                     // Summer
-//                     insignificantPrecipitation[2] += entry.average_rides_per_day;
-//                 } else {
-//                     // Fall
-//                     insignificantPrecipitation[3] += entry.average_rides_per_day;
-//                 }
-//             });
-//             // // Adjust for actual averages of average rides per day
-//             // const monthsInSeason = 3;
-//             // for (let i = 0; i < 4; i++) {
-//             //     significantPrecipitation[i] /= monthsInSeason;
-//             //     insignificantPrecipitation[i] /= monthsInSeason;
-//             // }
-//             // Create a chart with the aggregated data
-//             const data = {
-//                 labels: seasons,
-//                 datasets: [{
-//                         label: "Significant Precipitation (>=0.1 in)",
-//                         data: significantPrecipitation,
-//                         borderColor: utils.CHART_COLORS.red,
-//                         backgroundColor: utils.transparentize(utils.CHART_COLORS.red, 0.5),
-//                     },
-//                     {
-//                         label: "Insignificant Precipitation (<0.1 in)",
-//                         data: insignificantPrecipitation,
-//                         borderColor: utils.CHART_COLORS.blue,
-//                         backgroundColor: utils.transparentize(utils.CHART_COLORS.blue, 0.5),
-//                     },
-//                 ],
-//             };
+        // Function to distribute dataset entries into respective seasons
+        function accumulateDataBySeason(dataset, targetArray) {
+            dataset.forEach((entry) => {
+                // Determine the season based on month and aggregate data
+                // Calculate the indices for seasons and add ride averages
+                // Winter: Dec-Feb, Spring: Mar-May, Summer: Jun-Aug, Autumn: Sep-Nov
+                const month = parseInt(entry.month);
+                if (month === 12 || month <= 2) {
+                    // Winter
+                    targetArray[0] += entry.average_rides_per_day;
+                } else if (month >= 3 && month <= 5) {
+                    // Spring
+                    targetArray[1] += entry.average_rides_per_day;
+                } else if (month >= 6 && month <= 8) {
+                    // Summer
+                    targetArray[2] += entry.average_rides_per_day;
+                } else {
+                    // Autumn
+                    targetArray[3] += entry.average_rides_per_day;
+                }
+            });
+        }
 
-//             const ctx = document.getElementById("weatherChart").getContext("2d");
-//             const weatherChart = new Chart(ctx, {
-//                 type: "line",
-//                 data: data,
-//                 options: {
-//                     scales: {
-//                         x: {
-//                             title: {
-//                                 display: true,
-//                                 text: "Season",
-//                             },
-//                         },
-//                         y: {
-//                             title: {
-//                                 display: true,
-//                                 text: "Average Rides per Day",
-//                             },
-//                         },
-//                     },
-//                 },
-//             });
-//         }
-//         // Add the dropdown and event listener
-//         const chartTypeDropdown = document.getElementById("chartType");
+        // Accumulate seasonal data for both significant and insignificant precipitation
+        accumulateDataBySeason(dataset1, significantPrecipitation);
+        accumulateDataBySeason(dataset2, insignificantPrecipitation);
 
-//         chartTypeDropdown.addEventListener("change", function() {
-//             const selectedValue = chartTypeDropdown.value;
-//             if (selectedValue === "months") {
-//                 // Display the chart by months
-//                 updateChartByMonths(dataset1, dataset2);
-//             } else if (selectedValue === "seasons") {
-//                 // Display the chart by seasons
-//                 updateChartBySeasons(dataset1, dataset2);
-//             }
-//         });
-//     })
-// };
+        // Adjust for actual averages
+        const monthsInSeason = 3;
+        for (let i = 0; i < 4; i++) {
+            significantPrecipitation[i] /= monthsInSeason;
+            insignificantPrecipitation[i] /= monthsInSeason;
+        }
+
+        // Remove any existing chart and create a new one with season data
+        destroyChart();
+        const ctx = document.getElementById("weatherChart").getContext("2d");
+        createLineChart(ctx, seasons, [{
+                label: "Significant Precipitation (>=0.1 in)",
+                data: significantPrecipitation,
+                borderColor: utils.CHART_COLORS.red,
+                backgroundColor: utils.transparentize(utils.CHART_COLORS.red, 0.5),
+            },
+            {
+                label: "Insignificant Precipitation (<0.1 in)",
+                data: insignificantPrecipitation,
+                borderColor: utils.CHART_COLORS.blue,
+                backgroundColor: utils.transparentize(utils.CHART_COLORS.blue, 0.5),
+            }
+        ]);
+    }
+
+    // Dropdown element to choose between month and season view
+    const chartTypeDropdown = document.getElementById("chartType");
+
+    // Event listener to update chart when the dropdown selection changes
+    chartTypeDropdown.addEventListener("change", function() {
+        // Get the selected value and update the chart accordingly
+        const selectedValue = chartTypeDropdown.value;
+        if (selectedValue === "months") {
+            updateChartByMonths(dataset1, dataset2);
+        } else if (selectedValue === "seasons") {
+            updateChartBySeasons(dataset1, dataset2);
+        }
+    });
+}
