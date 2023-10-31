@@ -12,6 +12,8 @@
     
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <!-- link to chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <body>
 
@@ -58,8 +60,8 @@
             <div class="chart-dropdown">
                 <label for="chartType">Select Chart Type:</label>
                 <select id="chartType">
-                  <option value="months">Monthly</option>
-                  <option value="seasons">Seasonally</option>
+                  <option value="months">months</option>
+                  <option value="seasons">seasons</option>
                 </select>
             </div>
             <canvas id="weatherChart"></canvas>
@@ -89,6 +91,5 @@
         <script type="text/javascript" src="static/js/logic.js"></script>
         <script type="text/javascript" src="static/js/logic2.js"></script>
         <script type="text/javascript" src="static/js/logic3.js"></script>
-        <script type="text/javascript" src="static/js/logic4.js"></script>
     </body>
 </html>

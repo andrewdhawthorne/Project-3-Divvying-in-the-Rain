@@ -196,3 +196,8 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+/* Style the chart dropdown */
+.chart-dropdown {
+    margin-top: 10px;
+}

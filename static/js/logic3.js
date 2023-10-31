@@ -9,6 +9,11 @@ function createChart(dataset1, dataset2) {
         updateChartByMonths(dataset1, dataset2);
     });
 
+    const shortMonthNames = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
+
     // Utility functions for chart color and opacity management
     function createUtils() {
         return {
