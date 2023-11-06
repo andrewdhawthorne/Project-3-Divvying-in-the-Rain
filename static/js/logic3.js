@@ -1,3 +1,4 @@
+let weatherChart;
  // Wait for the DOM to be fully loaded before executing JavaScript
 document.addEventListener('DOMContentLoaded', function () {  
     // Fetch JSON data from the provided URLs
@@ -16,6 +17,14 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('Error fetching data:', error);
         });
+   
+    // Get the selected value from the dropdown
+    const chartTypeDropdown = document.getElementById('chartType');
+    chartTypeDropdown.addEventListener('change', function () {
+        const selectedValue = chartTypeDropdown.value;
+        console.log('The selected value is: ', selectedValue); // Log the selected value to the console
+        updateChart(selectedValue);
+    });
 
     function createChart(dataset1, dataset2) {
         // Utility function to create an object with chart-related functions and constants
@@ -122,13 +131,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             return seasonData;
         }
-       
-        // Get the selected value from the dropdown
-        const chartTypeDropdown = document.getElementById('chartType');
-        chartTypeDropdown.addEventListener('change', function () {
-            const selectedValue = chartTypeDropdown.value;
-            updateChart(selectedValue);
-        });
 
         // Initially, create the chart with the default value ('months')
         updateChart('months');
