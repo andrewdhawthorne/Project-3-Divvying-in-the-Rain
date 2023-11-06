@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('Error fetching data:', error);
         });
-   
+    
     // Get the selected value from the dropdown
     const chartTypeDropdown = document.getElementById('chartType');
     chartTypeDropdown.addEventListener('change', function () {
