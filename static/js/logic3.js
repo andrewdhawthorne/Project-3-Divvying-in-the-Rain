@@ -50,6 +50,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Function to create a chart based on the selected view (by months or by seasons)
         function updateChart(selectedValue) {
+            // // Check if the chart instance already exists
+            // if (weatherChart) {
+            //     weatherChart.clear();
+            //     weatherChart.destroy(); // Destroy the existing chart
+            // }
+
             const labels = selectedValue === 'months' ? shortMonthNames : seasonNames;
             const dataset1Data = selectedValue === 'months' ? dataset1.map(entry => entry.average_rides_per_day) : getSeasonData(dataset1);
             const dataset2Data = selectedValue === 'months' ? dataset2.map(entry => entry.average_rides_per_day) : getSeasonData(dataset2);
@@ -123,13 +129,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             return seasonData;
         }
-
+        
         // Initially, create the chart with the default value ('months')
         updateChart('months');
         // Get the selected value from the dropdown
         const chartTypeDropdown = document.getElementById('chartType');
-        chartTypeDropdown.addEventListener('change', function () {
-            const selectedValue = chartTypeDropdown.value;
+        // Code assistance from TA
+        chartTypeDropdown.addEventListener('change', function (e) {
+            let selectedValue = e.target.value;
             console.log('The selected value is: ', selectedValue); // Log the selected value to the console
             updateChart(selectedValue);
         });
