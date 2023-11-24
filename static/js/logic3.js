@@ -1,4 +1,3 @@
-let weatherChart;
  // Wait for the DOM to be fully loaded before executing JavaScript
 document.addEventListener('DOMContentLoaded', function () {  
     // Fetch JSON data from the provided URLs
@@ -47,14 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const seasonNames = [
             'Winter', 'Spring', 'Summer', 'Autumn'
         ];
-
         // Function to create a chart based on the selected view (by months or by seasons)
         function updateChart(selectedValue) {
-            // // Check if the chart instance already exists
-            // if (weatherChart) {
-            //     weatherChart.clear();
-            //     weatherChart.destroy(); // Destroy the existing chart
-            // }
 
             const labels = selectedValue === 'months' ? shortMonthNames : seasonNames;
             const dataset1Data = selectedValue === 'months' ? dataset1.map(entry => entry.average_rides_per_day) : getSeasonData(dataset1);
@@ -79,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             const ctx = document.getElementById('weatherChart').getContext('2d');
-            const weatherChart = new Chart(ctx, {
+            weatherChart = new Chart(ctx, {
                 type: 'line',
                 data: data,
                 options: {
@@ -138,7 +131,12 @@ document.addEventListener('DOMContentLoaded', function () {
         chartTypeDropdown.addEventListener('change', function (e) {
             let selectedValue = e.target.value;
             console.log('The selected value is: ', selectedValue); // Log the selected value to the console
+            if (weatherChart) {
+                weatherChart.clear();
+                weatherChart.destroy(); // Destroy the existing chart
+            }
             updateChart(selectedValue);
+            
         });
     }
 });   
