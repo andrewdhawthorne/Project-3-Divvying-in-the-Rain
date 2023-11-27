@@ -1,3 +1,168 @@
+ // Chart for Average Minimum and Maximum Temperature per Month
+// Fetch API for average temperature data
+fetch('http://localhost:5000/api/v1.0/daily_weather')
+.then(response => response.json())
+.then(data => {
+    // Call a function to create the temperature chart
+    createTemperatureCalc(data);
+})
+.catch(error => {
+    console.error('Error fetching data:', error);
+});
+
+// Create a function to calculate the average min/max temperatures per month
+function createTemperatureCalc(data) {
+// Initialize arrays to store monthly data
+const months = [];
+const avgMinTemps = [];
+const avgMaxTemps = [];
+
+// Group data by month and calculate average min and max temps
+for (let month = 1; month <= 12; month++) {
+    const monthlyData = data.filter(entry => new Date(entry.date).getMonth() + 1 === month);
+
+    if (monthlyData.length > 0) {
+        const avgMinTemp = monthlyData.reduce((sum, entry) => sum + entry.min_temp, 0) / monthlyData.length;
+        const avgMaxTemp = monthlyData.reduce((sum, entry) => sum + entry.max_temp, 0) / monthlyData.length;
+
+        months.push(month);
+        avgMinTemps.push(avgMinTemp);
+        avgMaxTemps.push(avgMaxTemp);
+
+    } else {
+        // No data for this month
+        months.push(month);
+        avgMinTemps.push(null); // Handle missing data
+        avgMaxTemps.push(null); // Handle missing data
+    }
+}
+
+// Call a function to create the line chart with the processed data
+createTemperatureChart(months, avgMinTemps, avgMaxTemps);
+}
+
+function createTemperatureChart(months, avgMinTemps, avgMaxTemps) {
+const shortMonthNames = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+];
+
+const ctx = document.getElementById('temperatureChart').getContext('2d');
+temperatureChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        // Map month numbers to short names
+        labels: months.map(month => shortMonthNames[month - 1]),
+        datasets: [{
+                label: 'Average Min Temperature (°F)',
+                data: avgMinTemps,
+                borderColor: 'blue',
+                backgroundColor: 'rgba(0, 0, 255, 0.1)',
+            },
+            {
+                label: 'Average Max Temperature (°F)',
+                data: avgMaxTemps,
+                borderColor: 'red',
+                backgroundColor: 'rgba(255, 0, 0, 0.1)',
+            },
+        ],
+    },
+    options: {
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Month',
+                },
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: 'Temperature (°F)',
+                },
+            },
+        },
+    },
+});
+}
+
+// Chart for Average Precipitation per Month
+// Fetch URL for average precipitation data
+fetch('http://localhost:5000/api/v1.0/daily_weather')
+.then(response => response.json())
+.then(data => {
+    // Call a function to create the precipitation chart
+    createPrecipitationChart(data);
+})
+.catch(error => {
+    console.error('Error fetching data:', error);
+});
+
+// Create a function to calculate the average monthly precipitation
+function createPrecipitationChart(data) {
+// Initialize arrays to store monthly data
+const months = [];
+const avgPrecipitation = [];
+
+// Group data by month and calculate average precipitation
+for (let month = 1; month <= 12; month++) {
+    const monthlyData = data.filter(entry => new Date(entry.date).getMonth() + 1 === month);
+
+    if (monthlyData.length > 0) {
+        const avgPrecip = monthlyData.reduce((sum, entry) => sum + entry.precipitation, 0) / monthlyData.length;
+
+        months.push(month);
+        avgPrecipitation.push(avgPrecip);
+    } else {
+        // No data for this month
+        months.push(month);
+        // Handle missing data
+        avgPrecipitation.push(null);
+    }
+}
+
+// Call a function to create the line chart with the processed precipitation data
+createPrecipitationLineChart(months, avgPrecipitation);
+}
+
+function createPrecipitationLineChart(months, avgPrecipitation) {
+const shortMonthNames = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+];
+
+const ctx = document.getElementById('precipitationChart').getContext('2d');
+precipitationChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: months.map(month => shortMonthNames[month - 1]), // Map month numbers to short names
+        datasets: [{
+            label: 'Average Monthly Precipitation (in)',
+            data: avgPrecipitation,
+            borderColor: 'blue',
+            backgroundColor: 'rgba(0, 0, 255, 0.1)',
+        }, ],
+    },
+    options: {
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Month',
+                },
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: 'Precipitation (in)',
+                },
+            },
+        },
+    },
+});
+}
+ 
+// Create the chart and event listener for the Divvy Rides by Precipitation Level chart that allows user to choose between viewing data by month or by season
  // Wait for the DOM to be fully loaded before executing JavaScript
 document.addEventListener('DOMContentLoaded', function () {  
     // Fetch JSON data from the provided URLs
