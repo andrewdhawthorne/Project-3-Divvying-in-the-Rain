@@ -1,0 +1,82 @@
+[
+    {
+        "_id": "Streeter Dr & Grand Ave",
+        "count": 72540,
+        "latitude": 41.892278,
+        "longitude": -87.612043,
+        "zip_code": "60611",
+        "population": 33224
+    },
+    {
+        "_id": "DuSable Lake Shore Dr & North Blvd",
+        "count": 40563,
+        "latitude": 41.911722,
+        "longitude": -87.626804,
+        "zip_code": "60614",
+        "population": 71954
+    },
+    {
+        "_id": "DuSable Lake Shore Dr & Monroe St",
+        "count": 38500,
+        "latitude": 41.880958,
+        "longitude": -87.616743,
+        "zip_code": "60601",
+        "population": 15083
+    },
+    {
+        "_id": "Michigan Ave & Oak St",
+        "count": 38279,
+        "latitude": 41.90096039,
+        "longitude": -87.62377664,
+        "zip_code": "60611",
+        "population": 33224
+    },
+    {
+        "_id": "Wells St & Concord Ln",
+        "count": 34688,
+        "latitude": 41.912133,
+        "longitude": -87.634656,
+        "zip_code": "60614",
+        "population": 71954
+    },
+    {
+        "_id": "Millennium Park",
+        "count": 33705,
+        "latitude": 41.8810317,
+        "longitude": -87.62408432,
+        "zip_code": "60601",
+        "population": 15083
+    },
+    {
+        "_id": "Clark St & Elm St",
+        "count": 32227,
+        "latitude": 41.902973,
+        "longitude": -87.63128,
+        "zip_code": "60610",
+        "population": 40548
+    },
+    {
+        "_id": "Theater on the Lake",
+        "count": 31672,
+        "latitude": 41.926277,
+        "longitude": -87.630834,
+        "zip_code": "60657",
+        "population": 70958
+    },
+    {
+        "_id": "Kingsbury St & Kinzie St",
+        "count": 30450,
+        "latitude": 41.88917683258,
+        "longitude": -87.6385057718,
+        "zip_code": "60654",
+        "population": 20022
+    },
+    {
+        "_id": "Wells St & Elm St",
+        "count": 28346,
+        "latitude": 41.903222,
+        "longitude": -87.634324,
+        "zip_code": "60610",
+        "population": 40548
+    }
+]
