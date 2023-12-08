@@ -29,7 +29,7 @@ My goal was to answer the following questions about Divvy riders between January
 
 
 ## Languages Used
-* Python: pyMongo, flask, flask_cors, pandas, matplotlib, scipy
+* Python: pyMongo, flask, flask_cors, pandas, matplotlib, scipy, seaborn
 * JavaScript
 * HTML
 * CSS
