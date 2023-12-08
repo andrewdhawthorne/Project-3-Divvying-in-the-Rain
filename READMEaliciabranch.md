@@ -36,11 +36,11 @@ My goal was to answer the following questions about Divvy riders between January
 
 ## Processing and Using the Data for Interactive Visualizations and Statistical Analysis
 1. Imported data, ran partner's queries, and ensured accuracy of data.
-2. Used [logic3.js](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/static/js/logic3.js) file to create charts and dropdown menu chart.
+2. Used [logic3.js](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/static/js/logic3.js) file to create charts and dropdown menu chart where either months or seasons can be selected.
    
-   ![Charts1](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/33fc87e5-709c-49d6-8b6c-5a89b43e2d2b)
-   
-   ![Charts2](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/8dd40ac2-fea4-4f34-abce-ffc26051cd65)
+   ![Monthly Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/70b19b69-8edb-4e3f-b6be-103803512476)
+
+![Season Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/ed769a15-31a6-400c-8bc5-4463c5ebb09a)
 
 4. Created a new database to store new data information in. 
 5. Used [Census.ipynb](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Census.ipynb) file to pull in Census population data and analyse it.
