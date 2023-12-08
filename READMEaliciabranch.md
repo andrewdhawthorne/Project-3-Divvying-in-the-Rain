@@ -37,9 +37,14 @@ My goal was to answer the following questions about Divvy riders between January
 ## Processing and Using the Data for Interactive Visualizations and Statistical Analysis
 1. Imported data, ran partner's queries, and ensured accuracy of data.
 2. Used [logic3.js](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/static/js/logic3.js) file to create charts and dropdown menu chart.
-3. Created a new database to store new data information in. 
-4. Used [Census.ipynb](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Census.ipynb) file to pull in Census population data and analyse it.
-5. Saved data to .json files.
+   
+   ![Charts1](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/33fc87e5-709c-49d6-8b6c-5a89b43e2d2b)
+   
+   ![Charts2](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/8dd40ac2-fea4-4f34-abce-ffc26051cd65)
+
+4. Created a new database to store new data information in. 
+5. Used [Census.ipynb](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Census.ipynb) file to pull in Census population data and analyse it.
+6. Saved data to .json files.
 
 ## Key Takeaways
 1. The average minimum and average maximum temperature generally followed the same curve.
