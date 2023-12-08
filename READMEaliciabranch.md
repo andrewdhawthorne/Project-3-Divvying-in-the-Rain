@@ -38,7 +38,7 @@ My goal was to answer the following questions about Divvy riders between January
 1. Imported data, ran partner's queries, and ensured accuracy of data.
 2. Used logic3.js file to create charts and dropdown menu chart.
 3. Created a new database to store new data information in. 
-4. Used Census.ipynb file to pull in Census population data and analyse it.
+4. Used [Census.ipynb](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Census.ipynb) file to pull in Census population data and analyse it.
 5. Saved data to .json files.
 
 ## Key Takeaways
