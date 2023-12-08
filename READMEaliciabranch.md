@@ -21,7 +21,7 @@ Link to GitHub branch: https://github.com/andrewdhawthorne/Project-3-Divvying-in
 
  ## Project Overview
 
-My goal was to answer the following questions about Divvy riders between January 1st, 2022 to December 31st, 2022.
+My goal was to answer the following questions about Divvy riders between January 1st, 2022 to December 31st, 2022:
 * What was the average minimum and maximum temperature over this timeframe?
 * What was the average precipitation over this timeframe?
 * How many Divvy riders were there based on precipitation, separated into both seasons and months?
@@ -38,10 +38,11 @@ My goal was to answer the following questions about Divvy riders between January
 1. Imported data, ran partner's queries, and ensured accuracy of data.
 2. Used [logic3.js](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/static/js/logic3.js) file to create charts and dropdown menu chart where either months or seasons can be selected.
    
-Dropdown chart with months displayed:
+Dropdown chart of Divvy Rides by Precipitation Level with months displayed, Average Minimum and Maximum Temperature Per Month, and Average Precipitation per Month:
 ![Monthly Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/c84bc270-01a2-4958-bb74-52905fb1a775)
 
-Dropdown chart with seasons displayed:
+
+Dropdown chart of Divvy Rides by Precipitation Level with seasons displayed, Average Minimum and Maximum Temperature Per Month, and Average Precipitation per Month:
 ![Season Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/1776a98c-6b66-46e7-98b6-3f17385a213e)
 
 4. Created a new database (db2) to store new data information in, along with copies of the collections for Top10StartStations and Top10EndStations. 
