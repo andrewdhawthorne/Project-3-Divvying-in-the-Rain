@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const seasonNames = [
             'Winter', 'Spring', 'Summer', 'Autumn'
         ];
-        // Function to create a chart based on the selected view (by months or by seasons)
+        // Function to create a chart based on the selected value (by months or by seasons)
         function updateChart(selectedValue) {
 
             const labels = selectedValue === 'months' ? shortMonthNames : seasonNames;
