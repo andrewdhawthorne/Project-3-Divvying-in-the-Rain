@@ -15,7 +15,7 @@ Link to website: https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-R
 
 * [Project Overview](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#project-overview)
 * [Languages Used](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#languages-used)
-* [Processing the Data for Interactive Visualizations](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#processing-the-data-for-interactive-visualization)
+* [Processing and Using the Data for Interactive Visualizations and Statistical Analysis](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#processing-and-using-the-data-for-interactive-visualizations-and-statistical-analysis)
 * [Key Takeaways](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#key-takeaways)
 * [Citations](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#citations)
 
@@ -34,7 +34,7 @@ My goal was to answer the following questions about Divvy riders between January
 * HTML
 * CSS
 
-## Processing/Using the Data for Interactive Visualizations and Statistical Analysis
+## Processing and Using the Data for Interactive Visualizations and Statistical Analysis
 1. Imported data, ran partner's queries, and ensured accuracy of data.
 2. Used logic3.js file to create charts and dropdown menu chart.
 3. Created a new database to store new data information in. 
