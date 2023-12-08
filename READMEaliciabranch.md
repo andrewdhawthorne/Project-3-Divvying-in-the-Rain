@@ -38,9 +38,9 @@ My goal was to answer the following questions about Divvy riders between January
 1. Imported data, ran partner's queries, and ensured accuracy of data.
 2. Used [logic3.js](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/static/js/logic3.js) file to create charts and dropdown menu chart where either months or seasons can be selected.
    
-   ![Monthly Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/70b19b69-8edb-4e3f-b6be-103803512476)
+   ![Monthly Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/c84bc270-01a2-4958-bb74-52905fb1a775)
 
-![Season Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/ed769a15-31a6-400c-8bc5-4463c5ebb09a)
+![Season Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/1776a98c-6b66-46e7-98b6-3f17385a213e)
 
 4. Created a new database to store new data information in. 
 5. Used [Census.ipynb](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Census.ipynb) file to pull in Census population data and analyse it.
