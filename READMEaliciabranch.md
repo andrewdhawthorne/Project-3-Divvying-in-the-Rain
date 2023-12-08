@@ -54,13 +54,18 @@ Dropdown chart of Divvy Rides by Precipitation Level with seasons displayed, Ave
 2. The highest average precipitation was in July.
 3. Divvy rides were generally greater when there was little to no precipitation, with the exception of April.
 4. The mean statistic for the Top 10 Ending Stations was higher than the mean statistic for the Top 10 Starting Stations.
-5. The mean bike count usage was also higher for the Top 10 Ending Stations.
-6. Although the total number of stations was low, a t-test was performed for both starting and ending stations.  There is no significant difference in station usage between highly populated and less populated areas for both the Top 10 Start Stations and the Top 10 End Stations.
+5. The median bike count usage was also higher for the Top 10 Ending Stations.
+
+![Box Plot of Population](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/706db730-15e9-4675-91d2-d45eee003676)
+
+  
+7. Although the total number of stations was low for both stating and ending stations (10 stations each), a t-test was performed for both of them.  There is no significant difference in station usage between highly populated and less populated areas for both the Top 10 Start Stations and the Top 10 End Stations.
 
 ## Citations
-1. Bureau, U. C. (2021, October 8). American Community survey 2015-2019 5-year data release. Census.gov. https://www.census.gov/newsroom/press-kits/2020/acs-5-year.html 
-2. Delete Documents. MongoDB. (n.d.). https://www.mongodb.com/docs/manual/tutorial/remove-documents/ 
-3. Free reverse geocoding API, Geocoding API, Autocomplete API. LocationIQ. (n.d.). https://locationiq.com/ 
-4. OpenWeather. (n.d.). One Call API - Historical weather data. https://openweathermap.org/api/one-call-3#history_daily_aggregation_how
-5. Stack Overflow. (2019, June 18). Ignoring null values within an aggregate operation in MongoDB. https://stackoverflow.com/questions/56131463/ignoring-null-values-within-an-aggregate-operation-in-mongodb
-6. Syed Uzair UddinSyed Uzair Uddin (1962, December 1). Destroy chart.js bar graph to redraw other graph in same canvas. Stack Overflow. https://stackoverflow.com/questions/40056555/destroy-chart-js-bar-graph-to-redraw-other-graph-in-same-canvas 
+1. Broken Axis. Broken Axis - Matplotlib 3.8.2 documentation. (n.d.). https://matplotlib.org/stable/gallery/subplots_axes_and_figures/broken_axis.html 
+2. Bureau, U. C. (2021, October 8). American Community survey 2015-2019 5-year data release. Census.gov. https://www.census.gov/newsroom/press-kits/2020/acs-5-year.html 
+3. Delete Documents. MongoDB. (n.d.). https://www.mongodb.com/docs/manual/tutorial/remove-documents/ 
+4. Free reverse geocoding API, Geocoding API, Autocomplete API. LocationIQ. (n.d.). https://locationiq.com/ 
+5. OpenWeather. (n.d.). One Call API - Historical weather data. https://openweathermap.org/api/one-call-3#history_daily_aggregation_how
+6. Stack Overflow. (2019, June 18). Ignoring null values within an aggregate operation in MongoDB. https://stackoverflow.com/questions/56131463/ignoring-null-values-within-an-aggregate-operation-in-mongodb
+7. Syed Uzair UddinSyed Uzair Uddin (1962, December 1). Destroy chart.js bar graph to redraw other graph in same canvas. Stack Overflow. https://stackoverflow.com/questions/40056555/destroy-chart-js-bar-graph-to-redraw-other-graph-in-same-canvas 
