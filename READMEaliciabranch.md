@@ -13,11 +13,11 @@ Link to website: https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-R
 
 ## Table of Contents
 
-* [Project Overview](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/README.md#project-overview)
-* [Languages Used](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/README.md#languages-used)
-* [Processing the Data for Interactive Visualizations](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/README.md#processing-the-data-for-interactive-visualization)
-* [Key Takeaways](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/README.md#key-takeaways)
-* [Citations](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/README.md#citations)
+* [Project Overview](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#project-overview)
+* [Languages Used](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#languages-used)
+* [Processing the Data for Interactive Visualizations](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#processing-the-data-for-interactive-visualization)
+* [Key Takeaways](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#key-takeaways)
+* [Citations](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/READMEaliciabranch.md#citations)
 
  ## Project Overview
 
