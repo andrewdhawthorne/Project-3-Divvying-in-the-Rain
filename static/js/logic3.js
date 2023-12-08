@@ -1,4 +1,4 @@
- // Chart for Average Minimum and Maximum Temperature per Month
+// Chart for Average Minimum and Maximum Temperature per Month
 // Fetch API for average temperature data
 fetch('http://localhost:5000/api/v1.0/daily_weather')
 .then(response => response.json())
