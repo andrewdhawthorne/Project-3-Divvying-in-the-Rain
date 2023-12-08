@@ -36,10 +36,17 @@ My goal was to answer the following questions about Divvy riders between January
 
 ## Processing and Using the Data for Interactive Visualizations and Statistical Analysis
 1. Imported data, ran partner's queries, and ensured accuracy of data.
-2. Used [logic3.js](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/static/js/logic3.js) file to create charts and dropdown menu chart.
-3. Created a new database to store new data information in. 
-4. Used [Census.ipynb](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Census.ipynb) file to pull in Census population data and analyse it.
-5. Saved data to .json files.
+2. Used [logic3.js](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/static/js/logic3.js) file to create charts and dropdown menu chart where either months or seasons can be selected.
+   
+Dropdown chart with months displayed:
+![Monthly Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/c84bc270-01a2-4958-bb74-52905fb1a775)
+
+Dropdown chart with seasons displayed:
+![Season Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/1776a98c-6b66-46e7-98b6-3f17385a213e)
+
+4. Created a new database (db2) to store new data information in, along with copies of the collections for Top10StartStations and Top10EndStations. 
+5. Used [Census.ipynb](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Census.ipynb) file to pull in Census population data and analyse it.
+6. Saved data to .json files [Top10StartStationsCopy.json](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Top10StartStationsCopy.json) and [Top10EndStationsCopy.json](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Top10EndStationsCopy.json).
 
 ## Key Takeaways
 1. The average minimum and average maximum temperature generally followed the same curve.
