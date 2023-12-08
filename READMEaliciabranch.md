@@ -63,3 +63,4 @@ Dropdown chart of Divvy Rides by Precipitation Level with seasons displayed, Ave
 3. Free reverse geocoding API, Geocoding API, Autocomplete API. LocationIQ. (n.d.). https://locationiq.com/ 
 4. OpenWeather. (n.d.). One Call API - Historical weather data. https://openweathermap.org/api/one-call-3#history_daily_aggregation_how
 5. Stack Overflow. (2019, June 18). Ignoring null values within an aggregate operation in MongoDB. https://stackoverflow.com/questions/56131463/ignoring-null-values-within-an-aggregate-operation-in-mongodb
+6. Syed Uzair UddinSyed Uzair Uddin (1962, December 1). Destroy chart.js bar graph to redraw other graph in same canvas. Stack Overflow. https://stackoverflow.com/questions/40056555/destroy-chart-js-bar-graph-to-redraw-other-graph-in-same-canvas 
