@@ -1,7 +1,7 @@
 # Project-3-Divvying-in-the-Rain-Side Project
 Is there anything that will stop bikers in Chicago? 
 
-Link to website: https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/
+Link to GitHub branch: https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/
 
 ## Team Members for this Section
 * Alicia Hlavac 
