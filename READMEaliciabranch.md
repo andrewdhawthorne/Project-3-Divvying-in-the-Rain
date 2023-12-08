@@ -51,7 +51,7 @@ Dropdown chart with seasons displayed:
 ## Key Takeaways
 1. The average minimum and average maximum temperature generally followed the same curve.
 2. The highest average precipitation was in July.
-3. Divvy rides were generally greater when there was little precipitation, with the exception of April.
+3. Divvy rides were generally greater when there was little to no precipitation, with the exception of April.
 4. The mean statistic for the Top 10 Ending Stations was higher than the mean statistic for the Top 10 Starting Stations.
 5. The mean bike count usage was also higher for the Top 10 Ending Stations.
 6. Although the total number of stations was low, a t-test was performed for both starting and ending stations.  There is no significant difference in station usage between highly populated and less populated areas for both the Top 10 Start Stations and the Top 10 End Stations.
