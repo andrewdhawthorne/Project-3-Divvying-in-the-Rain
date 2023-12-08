@@ -37,8 +37,10 @@ My goal was to answer the following questions about Divvy riders between January
 ## Processing and Using the Data for Interactive Visualizations and Statistical Analysis
 1. Imported data, ran partner's queries, and ensured accuracy of data.
 2. Used [logic3.js](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/static/js/logic3.js) file to create charts and dropdown menu chart where either months or seasons can be selected.
+   
 Dropdown chart with months displayed:
 ![Monthly Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/c84bc270-01a2-4958-bb74-52905fb1a775)
+
 Dropdown chart with seasons displayed:
 ![Season Chart Showing](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/1776a98c-6b66-46e7-98b6-3f17385a213e)
 
