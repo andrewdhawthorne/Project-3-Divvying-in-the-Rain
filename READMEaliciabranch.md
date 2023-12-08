@@ -44,7 +44,7 @@ Dropdown chart with seasons displayed:
 
 4. Created a new database (db2) to store new data information in, along with copies of the collections for Top10StartStations and Top10EndStations. 
 5. Used [Census.ipynb](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Census.ipynb) file to pull in Census population data and analyse it.
-6. Saved data to .json files [Top10StartStationsCopy.json]() and [Top10EndStationsCopy.json]().
+6. Saved data to .json files [Top10StartStationsCopy.json](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Top10StartStationsCopy.json) and [Top10EndStationsCopy.json](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/blob/aliciabranch/Top10EndStationsCopy.json).
 
 ## Key Takeaways
 1. The average minimum and average maximum temperature generally followed the same curve.
