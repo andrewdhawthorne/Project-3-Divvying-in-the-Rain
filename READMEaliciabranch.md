@@ -53,7 +53,7 @@ Dropdown chart of Divvy Rides by Precipitation Level with seasons displayed, Ave
 1. The average minimum and average maximum temperature generally followed the same curve.
 2. The highest average precipitation was in July.
 3. Divvy rides were generally greater when there was little to no precipitation, with the exception of April.
-4. The mean statistic for the Top 10 Ending Stations was higher than the mean statistic for the Top 10 Starting Stations.
+4. The mean statistics for the Top 10 Ending Stations was higher than the mean statistic for the Top 10 Starting Stations in both mean bike count usage and population.
 5. The median bike count usage was also higher for the Top 10 Ending Stations.
 
 ![Box Plot of Population](https://github.com/andrewdhawthorne/Project-3-Divvying-in-the-Rain/assets/127240852/706db730-15e9-4675-91d2-d45eee003676)
